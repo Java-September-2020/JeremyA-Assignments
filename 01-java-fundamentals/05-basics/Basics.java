@@ -25,16 +25,20 @@ public class Basics {
     // New number: 255 Sum: ___
     // Do NOT use an array to do this exercise.
     int sum = 0;
-        for (int i = 0; i <= 255; i++){
-            sum = sum + i;
-            System.out.println("New number: " + i + " Sum: " + sum);
-        }
+    for (int i = 0; i <= 255; i++){
+        sum = sum + i;
+        System.out.println("New number: " + i + " Sum: " + sum);
+    }
 
 
     // Iterating through an array
     // Given an array X, say [1,3,5,7,9,13], write a method that would iterate through 
     // each member of the array and print each value on the screen. Being able to loop 
     // through each member of the array is extremely important.
+    int array [] = {1,3,5,7,9,13};
+    for (int i = 0; i < array.length; i++){
+        System.out.println(array[i]);
+    }
 
 
     // Find Max
@@ -42,6 +46,12 @@ public class Basics {
     // value in the array. Your method should also work with a given array that has all 
     // negative numbers (e.g. [-3, -5, -7]), or even a mix of positive numbers, negative 
     // numbers and zero.
+    int array[] = {-3,-5,-7};
+    int max = 0;
+    for (int i = 0; i < array.length; i++){
+        max = max + array[i];
+    }
+    System.out.println(max);
 
 
     // Get Average
