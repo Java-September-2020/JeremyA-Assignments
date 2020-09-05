@@ -1,21 +1,29 @@
 public class StringManipulator {
     public String trimAndConcat(String str, String str2) {
-        return str;
-        return str2;
+        str = str.trim();
+        str2 = str2.trim();
+        return str + str2;
     }
-    public int getIndexOrNull(String str, char chr) {
-        return Interger.parseInt(str);
-        return chr;
+    public Integer getIndexOrNull(String str, char chr) {
+        int num = str.indexOf(chr);
+        if (num >= 0){
+            return num;
+        }
+        else {
+            return null;
+        }
     }
-    public int getIndexOrNull(String str, String str2){
-        return Interger.parseInt(str);
-        return Interger.parseInt(str2);
+    public Integer getIndexOrNull(String str, String str2){
+        int num = str.indexOf(str2);
+        if (num >= 0){
+            return num;
+        }
+        else {
+            return null;
+        }
     }
     public String concatSubstring(String str, int num, int num2, String str2) {
-        return str;
-        return Integer.toString(num);
-        return Integer.toString(num2);
-        return str2;
+        return str.substring(num, num2) + str2;
     }
 
 }
