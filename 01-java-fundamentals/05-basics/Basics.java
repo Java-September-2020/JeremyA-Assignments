@@ -7,10 +7,10 @@ public class Basics {
         System.out.println(i);
     }
 
-
     // Print odd numbers between 1-255
-    // Write a method that prints all the odd numbers from 1 to 255.
-
+    for (int i = -1; i <= 255; i+=2){
+        System.out.println(i);
+    }
 
     // Print Sum
     // Write a method that prints the numbers from 0 to 255, but this time print 
@@ -24,6 +24,11 @@ public class Basics {
     // ...
     // New number: 255 Sum: ___
     // Do NOT use an array to do this exercise.
+    int sum = 0;
+        for (int i = 0; i <= 255; i++){
+            sum = sum + i;
+            System.out.println("New number: " + i + " Sum: " + sum);
+        }
 
 
     // Iterating through an array
