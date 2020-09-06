@@ -9,12 +9,13 @@ public class HashMap {
         trackList.put("Twisted by ATB", "Isn't that twisted, my love");
         trackList.put("Only You by Kaskade by Kaskade", "I will always know, only you");
 
-        String title = 
-        // get the keys by using the keySet method
-        Set<String> keys = songMap.keySet();
+        String title = trackList.get("ABC by Jackson 5");
+        System.out.println("Title : " + title);
+        
+        Set<String> keys = trackList.keySet();
         for(String key : keys) {
             System.out.println(key);
-            System.out.println(songMap.get(key));    
+            System.out.println("Track :" trackList.get(key));    
         }
     }
 }
