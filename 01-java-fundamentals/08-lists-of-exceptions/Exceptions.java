@@ -7,13 +7,13 @@ public class Exceptions {
         myList.add("hello world");
         myList.add(48);
         myList.add("Goodbye World");
-        try{
-            for(int i = 0; i < myList.size(); i++) {
+        for(int i = 0; i < myList.size(); i++) {
+            try {
                 Integer castedValue = (Integer) myList.get(i);
                 System.out.println(castedValue);
+            } catch(ClassCastException e ) {
+                System.out.println(e);
             }
-        } catch (OutOfGasException e){
-            System.out.println("Cannot convert all into integers!");
         }
     }
 }
