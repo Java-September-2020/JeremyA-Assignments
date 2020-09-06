@@ -13,17 +13,6 @@ public class Basics {
     }
 
     // Print Sum
-    // Write a method that prints the numbers from 0 to 255, but this time print 
-    // the sum of the numbers that have been printed so far. For example, your output 
-    // should be something like this:
-
-    // New number: 0 Sum: 0
-    // New number: 1 Sum: 1
-    // New number: 2 Sum: 3
-    // New number: 3 Sum: 6
-    // ...
-    // New number: 255 Sum: ___
-    // Do NOT use an array to do this exercise.
     int sum = 0;
     for (int i = 0; i <= 255; i++){
         sum = sum + i;
@@ -32,9 +21,6 @@ public class Basics {
 
 
     // Iterating through an array
-    // Given an array X, say [1,3,5,7,9,13], write a method that would iterate through 
-    // each member of the array and print each value on the screen. Being able to loop 
-    // through each member of the array is extremely important.
     int array [] = {1,3,5,7,9,13};
     for (int i = 0; i < array.length; i++){
         System.out.println(array[i]);
@@ -42,10 +28,6 @@ public class Basics {
 
 
     // Find Max
-    // Write a method (sets of instructions) that takes any array and prints the maximum 
-    // value in the array. Your method should also work with a given array that has all 
-    // negative numbers (e.g. [-3, -5, -7]), or even a mix of positive numbers, negative 
-    // numbers and zero.
     int array[] = {-3,-5,-7};
     int max = 0;
     for (int i = 0; i < array.length; i++){
@@ -55,10 +37,14 @@ public class Basics {
 
 
     // Get Average
-    // Write a method that takes an array, and prints the AVERAGE of the values in the array. 
-    // For example for an array [2, 10, 3], your method should print an average of 5. Again,
-    // make sure you come up with a simple base case and write instructions to solve that base 
-    // case first, then test your instructions for other complicated cases.
+    int array[] = {2,10,3};
+    int sum = 0;
+    int avg = 0;
+    for (int i = 0; i < array.length; i++){
+        sum += array[i];
+    }
+    avg = sum / array.length;
+    System.out.println(avg);
 
 
     // Array with Odd Numbers
