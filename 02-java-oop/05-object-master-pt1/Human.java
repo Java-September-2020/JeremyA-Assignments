@@ -11,6 +11,8 @@ public class Human {
         intelligence = 3;
     }
     public int attack() {
+        System.out.println("Human attacked!");
+        System.out.println(health);
         health = health - strength;
         return health;
     }
