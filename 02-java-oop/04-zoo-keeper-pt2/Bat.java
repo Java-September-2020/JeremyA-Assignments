@@ -27,4 +27,5 @@ public class Bat {
         energyLevel -= 100;
         return energyLevel;
     }
+    
 }
