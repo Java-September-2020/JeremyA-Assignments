@@ -1,6 +1,9 @@
 public class Project {
     private String name;
     private String description;
+    public String elevatorPitch () {
+        return name + description;
+    }
     public Project() {
     }
 
@@ -12,8 +15,20 @@ public class Project {
         this.name = name;
         this.description = description;
     }
-    public void elevatorPitch () {
-        System.out.println("My name is: " + this.getClass(Project(name)));
-        System.out.println("I am :" + this.getClass(Project(description)));
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName (String name) {
+        this.name = name;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
