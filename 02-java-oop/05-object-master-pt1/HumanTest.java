@@ -3,5 +3,6 @@ public class HumanTest {
         Human hmn = new Human();
 
         hmn.attack();
+        System.out.println("Human's health: " + hmn.health);
     }
 }

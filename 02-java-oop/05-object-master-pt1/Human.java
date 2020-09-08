@@ -12,7 +12,6 @@ public class Human {
     }
     public int attack() {
         System.out.println("Human attacked!");
-        System.out.println(health);
         health = health - strength;
         return health;
     }
