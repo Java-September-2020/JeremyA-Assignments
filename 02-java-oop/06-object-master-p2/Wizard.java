@@ -1,4 +1,4 @@
-public class Wizard {
+public class Wizard extends Human {
     int health = 100;
     int intelligence = 8;
 

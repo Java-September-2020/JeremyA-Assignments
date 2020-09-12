@@ -1,4 +1,4 @@
-public class Ninja {
+public class Ninja extends Human {
     int health = 100;
     int stealth = 10;
 
