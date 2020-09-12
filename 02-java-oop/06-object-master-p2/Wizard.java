@@ -1,6 +1,9 @@
 public class Wizard extends Human {
-    int health = 50;
-    int intelligence = 8;
+
+    public Wizard (){
+        health = 50;
+        intelligence = 8;
+    }
 
     public void heal(Human target) {
         target.health += this.intelligence;

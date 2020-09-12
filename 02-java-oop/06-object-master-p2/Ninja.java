@@ -1,5 +1,8 @@
 public class Ninja extends Human {
-    int stealth = 10;
+
+    public Ninja (){
+        stealth = 10;
+    }
 
     public void steal (Human target) {
         target.health -= this.stealth;
