@@ -1,19 +1,11 @@
 public class Human {
-    int health;
-    int strength;
-    int stealth;
-    int intelligence;
+    int health = 100;
+    int strength = 3;
+    int stealth = 3;
+    int intelligence = 3;
 
-    public Human () {
-        health = 100;
-        strength = 3;
-        stealth = 3;
-        intelligence = 3;
-    }
-    public int attack() {
-        System.out.println("Human attacked!");
-        health = health - strength;
-        return health;
+    public void attack(Human target) {
+        target.health -= this.strength;
     }
 
 }
