@@ -1,10 +1,9 @@
 public class Ninja extends Human {
-    int health = 100;
     int stealth = 10;
 
     public void steal (Human target) {
         target.health -= this.stealth;
-        this.stealth += this.health;
+        this.health += this.stealth;
     }
 
     public void runaway (){

@@ -22,22 +22,23 @@ public class HumanTest {
 
         haruki.steal(azaki);
         System.out.println("Haruki refuses to forgive Azaki and steals from him!");
-        System.out.println("Azaki's Health increases: " + azaki.health);
+        System.out.println("Azaki's Health decreases: " + azaki.health);
+        System.out.println("Haruki's Health increases: " + haruki.health);
 
-        haruki.runaway();
-        System.out.println("Haruki runs away scared of the repercussions.");
-        System.out.println("Haruki's Health decreases: " + haruki.health);
+        // haruki.runaway();
+        // System.out.println("Haruki runs away scared of the repercussions.");
+        // System.out.println("Haruki's Health decreases: " + haruki.health);
 
-        atoshi.deathBlow(haruki);
-        System.out.println("Atoshi destroys Haruki for his incompetence.");
-        System.out.println("Haruki's Health: " + haruki.health);
-        System.out.println("Atoshi's Health is cut in half: " + atoshi.health);
+        // atoshi.deathBlow(haruki);
+        // System.out.println("Atoshi destroys Haruki for his incompetence.");
+        // System.out.println("Haruki's Health: " + haruki.health);
+        // System.out.println("Atoshi's Health is cut in half: " + atoshi.health);
 
-        atoshi.meditate();
-        System.out.println("Atoshi meditates to heal himself...");
-        System.out.println("Atoshi's Health increases: " + atoshi.health);
+        // atoshi.meditate();
+        // System.out.println("Atoshi meditates to heal himself...");
+        // System.out.println("Atoshi's Health increases: " + atoshi.health);
 
-        System.out.println(atoshi.howMany() + " copies of Atoshi exist by the way.");
+        // System.out.println(atoshi.howMany() + " copies of Atoshi exist by the way.");
 
 
     }
