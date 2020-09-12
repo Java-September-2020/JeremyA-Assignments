@@ -10,5 +10,10 @@ public class BankAccount {
         return this.checkingBalance;
     }
 
-    long number = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
+    private long randomAcctNum;
+    
+    
+    = (long) Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L;
+
+
 }
