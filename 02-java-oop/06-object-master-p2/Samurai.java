@@ -1,6 +1,6 @@
 public class Samurai extends Human {
     int health = 200;
-    int samurai = 4;
+    int samurais = 4;
 
     public void deathBlow (Human target) {
         target.health -= target.health;
@@ -12,6 +12,6 @@ public class Samurai extends Human {
     }
 
     public int howMany() {
-        return this.samurai;
+        return this.samurais;
     }
 }
