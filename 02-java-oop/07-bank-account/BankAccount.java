@@ -1,14 +1,18 @@
 public class BankAccount {
-    private String accountNumber;
-	private double checkingBalance;
-	private double savingBalance;
+    protected String accountNumber;
+	protected double checkingBalance;
+	protected double savingBalance;
 	public static int accountTotal = 0;
 	public static double balanceStored = 0;
 	
 	public BankAccount() {
 		accountNumber = randomAccountNum();
 		accountTotal++;
-	}
+    }
+    
+    public static int accounts() {
+        return accountTotal;
+    }
 	
 	private static String randomAccountNum() {
         StringBuilder word = new StringBuilder(10); 
