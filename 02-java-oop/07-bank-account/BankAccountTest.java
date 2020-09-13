@@ -3,7 +3,7 @@ public class BankAccountTest {
         BankAccount bankAccount = new BankAccount();
         System.out.println("Bank Account Number: " + bankAccount.accountNumber);
         
-        System.out.println("There are " + bankAccount.accounts() " total bank accounts.")
+        System.out.println("There are " + bankAccount.accounts() + " total bank accounts.");
 
 		bankAccount.depositMoney("Checking", 700);
 		System.out.println(bankAccount.getCheckingBalance());
