@@ -9,6 +9,8 @@ public class PhoneTester {
 
         iphoneTen.displayInfo();
         System.out.println(iphoneTen.ring());
-        System.out.println(iphoneTen.ring());
+        System.out.println(iphoneTen.unlock());
+
+        System.out.println("This works");
     }
 }

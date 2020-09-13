@@ -12,6 +12,6 @@ public class Galaxy extends Phone implements Ringable {
     }
     @Override
     public void displayInfo() {
-        System.out.println("Galaxy " + this.getVersionNumber() + "from" + this.getCarrier());       
+        System.out.println("Galaxy " + this.getVersionNumber() + " from " + this.getCarrier());       
     }
 }
