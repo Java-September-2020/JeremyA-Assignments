@@ -2,6 +2,7 @@ public class Calculator {
     Double operandOne;
     String operation;
     Double operandTwo;
+    Double result;
 
 
 
@@ -9,18 +10,6 @@ public class Calculator {
 
 
     public Calculator (){
-    }
-
-
-
-
-
-    public String performOperation() {
-        return this.getOperandOne() + this.getOperation() + this.getOperandTwo();
-    }
-
-    public String getResults() {
-        return this.performOperation();
     }
 
 
@@ -40,18 +29,7 @@ public class Calculator {
     }
 
     public String getOperation(){
-        if (this.operation = "+"){
-            return add();
-        }
-        else if (this.operation = "-") {
-            return subtract();
-        }
-        else if (this.operation = "*" || this.operation = "x"){
-            return multiply();
-        }
-        else if (this.operation = "/") {
-            return divide();
-        }
+        return this.operation;
     }
 
     public void setOperandTwo(Double operandTwo) {
@@ -62,4 +40,18 @@ public class Calculator {
         return this.operandTwo;
     }
     
+
+    public void performOperation() {
+        if (operation.equals("+")) {
+			result = operandOne + operandTwo;
+		}
+		else if (operation.equals("-")) {
+			result = operandOne - operandTwo;
+		}
+    }
+
+    public void getResults() {
+        System.out.println(result);
+    }
+
 }

@@ -6,8 +6,6 @@ public class CalculatorTest {
         calc.setOperation("+");
         calc.setOperandTwo(5.2);
 
-        calc.performOperation();
-
-        System.out.println(calc.getResults());
+        calc.getResults();
     }
 }
