@@ -5,7 +5,13 @@ public class CalculatorTest {
         calc.setOperandOne(10.5);
         calc.setOperation("+");
         calc.setOperandTwo(5.2);
+        calc.performOperation();
+        calc.getResults();
 
+        calc.setOperandOne(10.5);
+        calc.setOperation("-");
+        calc.setOperandTwo(5.2);
+        calc.performOperation();
         calc.getResults();
     }
 }
