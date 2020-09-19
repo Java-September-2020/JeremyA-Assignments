@@ -12,15 +12,15 @@
          width: 1000px;
          height: auto;
        }
-       #date {
+       #datetime {
        display: inline-block;
        vertical-align: top;
        padding-left: 10%;
        padding-right: 10%;
        }
+       #date {
+       color: green;
+       }
        #time {
-       display: inline-block;
-       vertical-align: top;
-       padding-left: 10%;
-       padding-right: 10%;
+       color: red;
        }
