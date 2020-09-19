@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> 
-<script src="js/main.js"></script>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -12,12 +12,11 @@
 			crossorigin="anonymous">	
 		<meta charset="ISO-8859-1">
 		<link rel="stylesheet" href="css/main.css">
-	<title>Display Date/Time</title>
+	<title>Counter</title>
 </head>
 	<body>
 		<div id="wrapper">
-		<h3 id="datetime"><a href="/date">Date Template</a></h3>	
-		<h3 id="datetime"><a href="/time">Time Template</a></h3>			
+		<h1 id="counter">Welcome User</h1>			
 		</div>
 	</body>
 </html>

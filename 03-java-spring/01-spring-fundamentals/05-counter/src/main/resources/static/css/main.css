@@ -12,15 +12,10 @@
          width: 1000px;
          height: auto;
        }
-       #datetime {
-       display: inline-block;
+       #counter {
+       text-align: center;
        vertical-align: top;
        padding-left: 10%;
        padding-right: 10%;
        }
-       #date {
-       color: blue;
-       }
-       #time {
-       color: green;
-       }
+       
