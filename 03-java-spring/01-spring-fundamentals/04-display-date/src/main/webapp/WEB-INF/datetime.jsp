@@ -15,7 +15,7 @@
 </head>
 	<body onload="alertPage('<c:out value="${dt}"/>')">
 		<div id="wrapper">		
-		<h1 class=<c:out value="${ dt }"/>><c:out value="${ dtFormat }" /></h1>
+		<h1 id=<c:out value="${ dt }"/>><c:out value="${ dtFormat }" /></h1>
 		<script defer type="text/javascript" src="js/main.js"></script>			
 		</div>
 	</body>
