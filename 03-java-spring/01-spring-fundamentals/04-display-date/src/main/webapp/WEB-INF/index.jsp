@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> 
+<script src="js/main.js"></script>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,8 +16,8 @@
 </head>
 	<body>
 		<div id="wrapper">
-		<h3 id="date"><a href="/date">Date Template</a></h3>	
-		<h3 id="time"><a href="/time">Time Template</a></h3>			
+		<h3 id="datetime"><a href="/date">Date Template</a></h3>	
+		<h3 id="datetime"><a href="/time">Time Template</a></h3>			
 		</div>
 	</body>
 </html>

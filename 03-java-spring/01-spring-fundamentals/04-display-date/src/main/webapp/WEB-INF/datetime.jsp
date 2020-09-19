@@ -13,9 +13,10 @@
 		<link rel="stylesheet" href="css/main.css">
 	<title>Date/Time</title>
 </head>
-	<body>
-		<div id="wrapper">
-		<h3 id="date/time"><c:out value = "${'This page is working'}"/></h3>			
+	<body onload="alertPage('<c:out value="${dt}"/>')">
+		<div id="wrapper">		
+		<h1 class=<c:out value="${ dt }"/>><c:out value="${ dtFormat }" /></h1>
+		<script defer type="text/javascript" src="js/main.js"></script>			
 		</div>
 	</body>
 </html>
