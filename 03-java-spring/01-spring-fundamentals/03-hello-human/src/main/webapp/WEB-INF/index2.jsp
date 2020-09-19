@@ -14,9 +14,9 @@
 </head>
 	<body>
 		<div id="wrapper">
-		<h1>Hello Human</h1>
+		<h1>Hello  <c:out value = "${''}"/></h1>
 		<br>
-		<p>Welcome to Springboot!</p>			
+		<p></p>				
 		</div>
 	</body>
 </html>
