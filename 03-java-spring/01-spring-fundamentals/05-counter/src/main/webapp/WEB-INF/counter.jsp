@@ -13,10 +13,9 @@
 		<link rel="stylesheet" href="css/main.css">
 	<title>Date/Time</title>
 </head>
-	<body onload="alertPage('<c:out value="${dt}"/>')">
+	<body>
 		<div id="wrapper">		
-		<h1 id=<c:out value="${ dt }"/>><c:out value="${ dtFormat }" /></h1>
-		<script defer type="text/javascript" src="js/main.js"></script>			
+		<h3 id="">This Page Works</h3>		
 		</div>
 	</body>
 </html>

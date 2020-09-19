@@ -10,5 +10,10 @@ public class CounterController {
 	public String index () {
 		return "index.jsp";
 	}
+	@RequestMapping("/counter")
+	public String counter() {
+		return "counter.jsp";
+		
+	}
 
 }
