@@ -10,6 +10,7 @@
 			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
 			crossorigin="anonymous">	
 		<meta charset="ISO-8859-1">
+		<link rel="stylesheet" href="main.css">
 	<title>Hello Human</title>
 </head>
 	<body>
