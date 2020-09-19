@@ -12,3 +12,15 @@
          width: 1000px;
          height: auto;
        }
+       #date {
+       display: inline-block;
+       vertical-align: top;
+       padding-left: 10%;
+       padding-right: 10%;
+       }
+       #time {
+       display: inline-block;
+       vertical-align: top;
+       padding-left: 10%;
+       padding-right: 10%;
+       }

@@ -11,12 +11,11 @@
 			crossorigin="anonymous">	
 		<meta charset="ISO-8859-1">
 		<link rel="stylesheet" href="css/main.css">
-	<title>Display Date/Time</title>
+	<title>Display Time</title>
 </head>
 	<body>
 		<div id="wrapper">
-		<h3 id="date"><a href="/date">Date Template</a></h3>	
-		<h3 id="time"><a href="/time">Time Template</a></h3>			
+				<h3 id="time"><c:out value = "${'This page is working'}"/></h3>			
 		</div>
 	</body>
 </html>
