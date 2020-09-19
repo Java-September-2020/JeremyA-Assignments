@@ -1,0 +1,26 @@
+* {
+	vertical-align: baseline;
+	font-weight: inherit;
+    font-style: inherit;
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	outline: 0;
+    margin: 0 auto;
+	}
+#wrapper {
+         padding: 100px;
+         width: 1000px;
+         height: auto;
+       }
+       #datetime {
+       display: inline-block;
+       vertical-align: top;
+       padding-left: 10%;
+       padding-right: 10%;
+       }
+       #date {
+       color: blue;
+       }
+       #time {
+       color: green;
+       }
