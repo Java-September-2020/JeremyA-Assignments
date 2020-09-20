@@ -35,7 +35,7 @@
 					</select>
 				</p>
 				<p id="commentword">Comment (optional):</p>	
-				<textarea id="comment" name="comment"></textarea>
+				<textarea id="comment" name="comment" value="comment"></textarea>
 				<br>				
 				<input type="submit" id="submit" value="Submit"/>
 			</form>	

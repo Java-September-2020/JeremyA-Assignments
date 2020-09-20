@@ -19,13 +19,15 @@ public class SurveyController {
 			@RequestParam(value="name") String name,
 			@RequestParam(value="location") String location,
 			@RequestParam(value="language") String language,
+			@RequestParam(value="comment") String comment,
 			Model model){
-		model.addAttribute(name);
-		model.addAttribute(location);
-		model.addAttribute(language);
+		model.addAttribute("name", name);
+		model.addAttribute("location", location);
+		model.addAttribute("language", language);
+		model.addAttribute("comment", comment);
 		return "redirect:/result";
 	}
-	@RequestMapping("/result")
+	@GetMapping("/result")
 	public String Result() {
 		return "result.jsp";
 	}

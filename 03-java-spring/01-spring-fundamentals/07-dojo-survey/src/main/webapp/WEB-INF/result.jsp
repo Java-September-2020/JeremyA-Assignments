@@ -15,7 +15,11 @@
 </head>
 	<body>
 		<div id="wrapper">	
-		<p>This Page Works</p>
+		<h3>Submitted Info:</h3>
+		<p>Name: <c:out ${ name }/></p>
+		<p>Dojo Location: <c:out ${ location }/></p>
+		<p>Favorite Language: <c:out ${ language }/></p>
+		<p>Comment: <c:out ${ comment }/></p>
 		</div>
 	</body>
 </html>
