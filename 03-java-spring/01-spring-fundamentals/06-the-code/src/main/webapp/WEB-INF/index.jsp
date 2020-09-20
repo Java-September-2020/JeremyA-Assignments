@@ -21,7 +21,7 @@
 				<h3 id="question">What is the code?</h3>
 				<input id="input" type="text" name="guess" placeholder="What is the code?" />
 				<br>
-				<input type="submit"id="submit" value="Try Code"/>
+				<input type="submit" id="submit" value="Try Code"/>
 			</form>	
 		</div>
 	</body>

@@ -14,11 +14,6 @@ public class CodeController {
 	private Boolean isCorrectCode(String guess) {
 		return guess.equals("bushido");
 	}
-	private String[] getCodes() {
-		return new String[] {
-		"Loyalty", "Courage", "Veracity", "Compassion", "Honor"	
-		};
-	}
 	
 	@GetMapping("")
 	public String Index() {
@@ -35,8 +30,7 @@ public class CodeController {
 		return "redirect:/";
 	}
 	@RequestMapping("/code")
-	public String Code(Model model) {
-		model.addAttribute("code", getCodes());
+	public String Code() {
 		return "code.jsp";
 	}
 }
