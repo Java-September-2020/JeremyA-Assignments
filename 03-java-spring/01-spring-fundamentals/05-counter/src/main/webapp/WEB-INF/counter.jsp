@@ -11,11 +11,13 @@
 			crossorigin="anonymous">	
 		<meta charset="ISO-8859-1">
 		<link rel="stylesheet" href="css/main.css">
-	<title>Date/Time</title>
+	<title>Counter</title>
 </head>
 	<body>
 		<div id="wrapper">		
-		<h3 id="">This Page Works</h3>		
+		<h3 id="top">You have visited <c:out value="${ count }"/> times.</h3>	
+			
+		<h3 id="bottom"><a href ="/">Test another visit?</a></h3>	
 		</div>
 	</body>
 </html>
