@@ -15,7 +15,7 @@
 </head>
 	<body>
 		<div id="wrapper">		
-		<h3 id="top">You have visited <c:out value="${ count }"/> times.</h3>	
+		<h3 id="top">You have visited <a href ="/">http://localhost:8080/ </a><c:out value="${ count }"/> times.</h3>	
 			
 		<h3 id="bottom"><a href ="/">Test another visit?</a></h3>	
 		</div>
