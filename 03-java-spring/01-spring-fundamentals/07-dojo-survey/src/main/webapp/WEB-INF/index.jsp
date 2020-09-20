@@ -19,7 +19,7 @@
 			<form method="post" action="/survey">
 				<p>Name: <input type="text" id="input-1" name="name"/></p>
 				<p>Dojo Location: 
-					<select name="location" id="input-2" value="location">
+					<select name="location" id="input-2">
 					  <option>San Jose</option>
 					  <option>Mountain View</option>
 					  <option>Dallas</option>
@@ -27,7 +27,7 @@
 					</select>
 				</p>
 				<p>Favorite Language: 
-					<select name="language" id="input-3" value="language">
+					<select name="language" id="input-3">
 					  <option>Java</option>
 					  <option>Rust</option>
 					  <option>Swift</option>
@@ -35,7 +35,7 @@
 					</select>
 				</p>
 				<p id="commentword">Comment (optional):</p>	
-				<textarea id="comment" name="comment" value="comment"></textarea>
+				<textarea id="comment" name="comment"></textarea>
 				<br>				
 				<input type="submit" id="submit" value="Submit"/>
 			</form>	

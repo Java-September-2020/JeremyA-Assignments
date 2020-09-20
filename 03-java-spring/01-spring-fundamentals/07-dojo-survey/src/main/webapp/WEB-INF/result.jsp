@@ -16,10 +16,10 @@
 	<body>
 		<div id="wrapper">	
 		<h3>Submitted Info:</h3>
-		<p>Name: <c:out ${ name }/></p>
-		<p>Dojo Location: <c:out ${ location }/></p>
-		<p>Favorite Language: <c:out ${ language }/></p>
-		<p>Comment: <c:out ${ comment }/></p>
+		<p>Name: <c:out value="${ name }"/></p>
+		<p>Dojo Location: <c:out value="${ location }"/></p>
+		<p>Favorite Language: <c:out value="${ language }"/></p>
+		<p>Comment: <c:out value="${ comment }"/></p>
 		</div>
 	</body>
 </html>
