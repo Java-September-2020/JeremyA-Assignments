@@ -16,9 +16,10 @@
 </head>
 	<body>
 		<div id="wrapper">
-			<form method="POST" action="/findcode">
+			<form method="post" action="/findcode">
+				<span>${ error }</span>
 				<h3 id="question">What is the code?</h3>
-				<input type="text" id="input" path="code"/>
+				<input id="input" type="text" name="guess" placeholder="What is the code?" />
 				<br>
 				<input type="submit"id="submit" value="Try Code"/>
 			</form>	

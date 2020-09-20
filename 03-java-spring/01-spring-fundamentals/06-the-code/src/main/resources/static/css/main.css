@@ -14,14 +14,21 @@
        display: flex;
   	   align-items: center;
        }
+       span{
+       text-align: center;
+       margin-left: 60px;
+       color: red;
+       }
        #question {
        text-align: center;
        margin-bottom: 20px;
+       margin-top: 10px;
        }
        #input {
        width: 300px;
        heigh: 15px;
        margin-bottom: 25px;
+       padding: 5px;
        }
        #submit {
        margin-left: 110px;

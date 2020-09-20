@@ -11,13 +11,17 @@
 			crossorigin="anonymous">	
 		<meta charset="ISO-8859-1">
 		<link rel="stylesheet" href="css/main.css">
-	<title>Counter</title>
+	<title>Code</title>
 </head>
 	<body>
-		<div id="wrapper">		
-		<h3 id="top">You have visited <a href ="/">http://localhost:8080/ </a><c:out value="${ count }"/> times.</h3>	
-			
-		<h3 id="bottom"><a href ="/">Test another visit?</a></h3>	
+		<div id="wrapper">	
+		<ul>
+			<li>Loyalty</li>
+			<li>Courage</li>
+			<li>Veracity</li>
+			<li>Compassion</li>
+			<li>Honor</li>
+		</ul>
 		</div>
 	</body>
 </html>
