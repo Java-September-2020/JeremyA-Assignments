@@ -17,9 +17,26 @@
 	<body>
 		<div id="wrapper">
 			<form method="post" action="/survey">
-				<h3 id="survey">This Page Works</h3>
-				
-				<br>
+				<p>Name: <input type="text" id="input-1" name="name"/></p>
+				<p>Dojo Location: 
+					<select name="location" id="input-2" value="location">
+					  <option>San Jose</option>
+					  <option>Mountain View</option>
+					  <option>Dallas</option>
+					  <option>Mars</option>
+					</select>
+				</p>
+				<p>Favorite Language: 
+					<select name="language" id="input-3" value="language">
+					  <option>Java</option>
+					  <option>Rust</option>
+					  <option>Swift</option>
+					  <option>Python</option>
+					</select>
+				</p>
+				<p id="commentword">Comment (optional):</p>	
+				<textarea id="comment" name="comment"></textarea>
+				<br>				
 				<input type="submit" id="submit" value="Submit"/>
 			</form>	
 		</div>

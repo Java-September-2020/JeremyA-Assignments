@@ -14,18 +14,67 @@
        display: flex;
   	   align-items: center;
        }
-       #survey {
-       text-align: center;
-       margin-bottom: 20px;
-       margin-top: 10px;
+       form {
+       margin-top: -20px;
+       border: solid;
+       border-width: 3px;
+       border-color: silver;
+       border-radius: 20px;
+       padding: 50px;
+       height: 550px;
+       width: 600px;
        }
-       #input {
+       #input-1 {
+       border-width: 1px;
        width: 300px;
-       heigh: 15px;
-       margin-bottom: 25px;
-       padding: 5px;
+       height: 50px;
+       margin-bottom: 5px;
+       padding: 10px;
+       border: solid;
+       border-radius: 10px;
+       border-color: silver;
+       margin-left: 130px;
+       }
+       #input-2 {
+       border-width: 3px;
+       width: 300px;
+       height: 50px;
+       margin-bottom: 5px;
+       padding: 10px;
+       border-radius: 10px;
+       border-color: silver;
+       margin-left: 75px;
+       }
+       #input-3 {
+       border-width: 3px;
+       width: 300px;
+       height: 50px;
+       margin-bottom: 20px;
+       padding: 10px;
+       border-radius: 10px;
+       border-color: silver;
+       margin-left: 40px;
+       }
+
+       #comment {
+       width: 490px;
+       height: 100px;
+       margin-bottom: 35px;
+       padding: 20px;
+       border-radius: 20px;
+       padding-left: 20px;
+       border-color: silver;
+       border-width: 3px;
        }
        #submit {
-       margin-left: 110px;
+       margin-left: 400px;
+       padding: 5px;
+       border: solid;
+       color: gray;
+       background-color: white;
+       border-radius: 10px;
+       border-color: silver;
+       padding-left: 20px;
+       padding-right: 20px;
        }
        
