@@ -1,0 +1,31 @@
+* {
+	vertical-align: baseline;
+	font-weight: inherit;
+    font-style: inherit;
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	outline: 0;
+    margin: 0 auto;
+	}
+#wrapper {	
+       padding: 100px;
+       width: 1000px;
+       height: auto;
+       display: flex;
+  	   align-items: center;
+       }
+       #survey {
+       text-align: center;
+       margin-bottom: 20px;
+       margin-top: 10px;
+       }
+       #input {
+       width: 300px;
+       heigh: 15px;
+       margin-bottom: 25px;
+       padding: 5px;
+       }
+       #submit {
+       margin-left: 110px;
+       }
+       
