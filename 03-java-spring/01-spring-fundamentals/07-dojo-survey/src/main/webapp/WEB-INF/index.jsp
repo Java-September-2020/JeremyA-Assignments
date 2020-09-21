@@ -16,7 +16,7 @@
 </head>
 	<body>
 		<div id="wrapper">
-			<form method="post" action="/survey">
+			<form method="POST" action="/result">
 				<p>Name: <input type="text" id="input-1" name="name"/></p>
 				<p>Dojo Location: 
 					<select name="location" id="input-2">

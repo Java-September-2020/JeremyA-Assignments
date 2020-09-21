@@ -14,7 +14,7 @@ public class SurveyController {
 	public String Index() {
 		return "index.jsp";
 	}
-	@PostMapping("/survey")
+	@PostMapping("/result")
 	public String Survey(
 			@RequestParam(value="name") String name,
 			@RequestParam(value="location") String location,
@@ -25,11 +25,17 @@ public class SurveyController {
 		model.addAttribute("location", location);
 		model.addAttribute("language", language);
 		model.addAttribute("comment", comment);
-		return "redirect:/result";
-	}
-	@GetMapping("/result")
-	public String Result() {
 		return "result.jsp";
 	}
+	
+////	For UI styling purposes...
+//	
+//	@RequestMapping ("/result")
+//	public String result() {
+//		return "result.jsp";
+//	}
+//	
+////	For UI styling purposes...
+
 
 }
