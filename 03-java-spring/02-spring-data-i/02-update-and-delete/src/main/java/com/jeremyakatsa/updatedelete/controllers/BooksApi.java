@@ -12,6 +12,7 @@ import com.jeremyakatsa.updatedelete.models.Book;
 import com.jeremyakatsa.updatedelete.services.BookService;
 
 @RestController
+@RequestMapping("/api/books")
 public class BooksApi {
     private BookService bookService;
     
@@ -19,29 +20,29 @@ public class BooksApi {
         this.bookService = bookService;
     }
     
-    @RequestMapping("/api/books")
+    @RequestMapping("/")
     public List<Book> index() {
         return bookService.allBooks();
     }
     
-    @RequestMapping(value="/api/books", method=RequestMethod.POST)
+    @RequestMapping(value="/", method=RequestMethod.POST)
     public Book create(@RequestParam(value="title") String title, @RequestParam(value="description") String desc, @RequestParam(value="language") String lang, @RequestParam(value="pages") Integer numOfPages) {
         Book book = new Book(title, desc, lang, numOfPages);
         return bookService.createBook(book);
     }
     
-    @RequestMapping("/api/books/{id}")
+    @RequestMapping("/{id}")
     public Book show(@PathVariable("id") Long id) {
         Book book = bookService.findBook(id);
         return book;
     }
-    @RequestMapping(value="/api/books/{id}", method=RequestMethod.PUT)
+    @RequestMapping(value="/{id}", method=RequestMethod.PUT)
     public Book update(@PathVariable("id") Long id, Book b) {
         Book book = bookService.updateBook(b);
         return book;
     }
     
-    @RequestMapping(value="/api/books/{id}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
     public void destroy(@PathVariable("id") Long id) {
         bookService.deleteBook(id);
     }
