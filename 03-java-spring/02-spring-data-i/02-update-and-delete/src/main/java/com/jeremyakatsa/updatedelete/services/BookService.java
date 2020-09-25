@@ -54,12 +54,12 @@ public class BookService {
 	        }
 	    }
 	  // updates specific book
-	    public Book updateBook(Long id) {
-	    	return bookRepository.update(id);
+	    public Book updateBook(Book b) {
+	    	return bookRepository.save(b);
 	    }
 	    
 	  //deletes specific book
-	    public Book deleteBook(Book b) {
-	    	return bookRepository.delete(b);
+	    public void deleteBook(Long id) {
+	    	this.bookRepository.deleteById(id);
 	    }
 }
