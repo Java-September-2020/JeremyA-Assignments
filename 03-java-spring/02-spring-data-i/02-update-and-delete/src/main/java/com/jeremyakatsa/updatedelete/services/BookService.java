@@ -45,12 +45,21 @@ public class BookService {
 	          return null;
 	      }
 	  }
-    
+	  // finds specific book
 	    public Book findBookByIndex(int index) {
 	        if (index < books.size()){
 	            return books.get(index);
 	        }else{
 	            return null;
 	        }
+	    }
+	  // updates specific book
+	    public Book updateBook(Long id) {
+	    	return bookRepository.update(id);
+	    }
+	    
+	  //deletes specific book
+	    public Book deleteBook(Book b) {
+	    	return bookRepository.delete(b);
 	    }
 }
