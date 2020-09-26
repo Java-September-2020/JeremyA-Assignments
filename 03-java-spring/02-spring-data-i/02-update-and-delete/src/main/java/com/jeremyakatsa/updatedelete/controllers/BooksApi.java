@@ -44,6 +44,6 @@ public class BooksApi {
     
     @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
     public void destroy(@PathVariable("id") Long id) {
-        bookService.deleteBook(id);
+        this.bookService.deleteBook(id);
     }
 }
