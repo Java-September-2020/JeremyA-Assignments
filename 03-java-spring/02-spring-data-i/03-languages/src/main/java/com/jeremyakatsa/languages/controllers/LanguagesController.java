@@ -27,7 +27,7 @@ public class LanguagesController {
 		this.langService = service;
 	}
 	
-	@RequestMapping("")
+	@RequestMapping("/")
 	public String index(@ModelAttribute("language") Language language, Model model) {
 		model.addAttribute("languages", langService.allLanguages());
 		return "/index.jsp";
@@ -52,7 +52,7 @@ public class LanguagesController {
 			return "index.jsp";
 		else {
 			langService.createLanguage(lang);
-			return "redirect:";
+			return "redirect:/";
 		}
 	}
 	@RequestMapping("/edit/{id}")
@@ -63,14 +63,14 @@ public class LanguagesController {
 	@RequestMapping(value="{id}", method=RequestMethod.PUT)
 	public String update(@Valid @ModelAttribute("language") Language lang, BindingResult result) {
 		if(result.hasErrors())
-			return "redirect:/edit/{id}";
+			return "edit.jsp";
 		else 
 		langService.updateLanguage(lang);
-		return "index.jsp";
+		return "redirect:/";
 	}
 	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable("id") Long id) {
 		this.langService.deleteLanguage(id);
-		return "redirect:";
+		return "redirect:/";
 	}
 }

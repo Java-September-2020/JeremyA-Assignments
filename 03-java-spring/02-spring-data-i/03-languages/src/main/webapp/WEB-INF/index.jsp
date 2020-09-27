@@ -30,12 +30,12 @@
 			<tbody>
 			<c:forEach items="${ languages }" var="lang">
 				<tr>
-					<td><a href="languages/${ lang.id }">${ lang.name }</a></td>
+					<td><a href="/${ lang.id }">${ lang.name }</a></td>
 					<td>${ lang.creator }</td>
 					<td>${ lang.currentVersion }</td>
 					<td>
-						<a  href="languages/edit/${lang.id}">Edit</a>
-						<a href="languages/delete/${lang.id}">Delete</a>
+						<a href="/edit/${lang.id}">Edit</a>
+						<a href="/delete/${lang.id}">Delete</a>
 					</td>
 				</tr>
 			</c:forEach>
