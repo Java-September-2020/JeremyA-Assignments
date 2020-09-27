@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -47,5 +48,14 @@ public class BooksController {
     @RequestMapping("/books/new")
     public String newBook() {
     	return "/books/new.jsp";
+    }
+    @PostMapping("/books/new")
+    public String createBook(@Valid @ModelAttribute("book") Book book, BindingResult result) {
+        if (result.hasErrors()) {
+            return "newBook.jsp";
+        }else{
+            bookService.createBook(book);
+            return "redirect:/books";
+        }
     }
 }
