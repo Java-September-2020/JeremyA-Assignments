@@ -19,12 +19,9 @@
 		<p>${ song.name }</p>
 		<h3>Artist</h3>
 		<p>${ song.artist }</p>
-		<h3>Rating</h3>
+		<h3>Rating (1-10)</h3>
 		<p>${ song.rating }</p>
-		<form action="/songs/${ song.id }" method="post">
-			<input type="hidden" name="_method" value="delete" />
-			<input class="btn btn-danger" type="submit" value="Delete" />
-		</form>
+		<a class="btn btn-danger" href="/delete/${ song.id }">Delete</a>
 	</div>
 </body>
 </html>

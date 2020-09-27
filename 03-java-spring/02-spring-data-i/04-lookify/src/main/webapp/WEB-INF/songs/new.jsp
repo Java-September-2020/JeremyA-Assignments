@@ -29,7 +29,7 @@
 		        <form:input class="form-control" path="artist"/>
 		    </div>
 		    <div class="form-group">
-		        <form:label path="rating">Rating</form:label>
+		        <form:label path="rating">Rating (1-10)</form:label>
 		        <form:errors path="rating"/>
 		        <form:input type="number" class="form-control" path="rating"/>
 		    </div>
