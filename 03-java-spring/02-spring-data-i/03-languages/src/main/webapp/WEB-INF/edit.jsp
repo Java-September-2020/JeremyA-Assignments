@@ -16,12 +16,12 @@
 </head>
 <body>
 	<div class="container">
-	<form id="delete-form" action="/delete/${lang.id}">
+	<form id="delete-form" action="languages/delete/${lang.id}">
 		    <input type="hidden" name="_method" value="delete">
 		    <input class="btn btn-danger" type="submit" value="Delete">
 		</form>
 		<h1>Edit Language</h1>
-		<form:form action="/${ lang.id }" method="post" modelAttribute="language">
+		<form:form action="languages/${ lang.id }" method="post" modelAttribute="language">
 			<input type="hidden" name="_method" value="put">
 		    <div class="form-group">
 		        <form:label path="name">Language Name</form:label>
