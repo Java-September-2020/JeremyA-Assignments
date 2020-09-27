@@ -26,8 +26,7 @@ public class BooksApi {
     }
     
     @RequestMapping(value="/", method=RequestMethod.POST)
-    public Book create(@RequestParam(value="title") String title, @RequestParam(value="description") String desc, @RequestParam(value="language") String lang, @RequestParam(value="pages") Integer numOfPages) {
-        Book book = new Book(title, desc, lang, numOfPages);
+    public Book create(Book book) {
         return bookService.createBook(book);
     }
     
@@ -36,13 +35,13 @@ public class BooksApi {
         Book book = bookService.findBook(id);
         return book;
     }
-    @RequestMapping(value="/{id}", method=RequestMethod.PUT)
+    @RequestMapping(value="/update/{id}", method=RequestMethod.PUT)
     public Book update(@PathVariable("id") Long id, Book b) {
         Book book = bookService.updateBook(b);
         return book;
     }
     
-    @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/delete/{id}", method=RequestMethod.DELETE)
     public void destroy(@PathVariable("id") Long id) {
         this.bookService.deleteBook(id);
     }
