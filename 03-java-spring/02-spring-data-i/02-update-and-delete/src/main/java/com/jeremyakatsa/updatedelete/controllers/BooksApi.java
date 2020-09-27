@@ -12,7 +12,6 @@ import com.jeremyakatsa.updatedelete.models.Book;
 import com.jeremyakatsa.updatedelete.services.BookService;
 
 @RestController
-@RequestMapping("/api/books")
 public class BooksApi {
     private BookService bookService;
     
@@ -20,7 +19,7 @@ public class BooksApi {
         this.bookService = bookService;
     }
     
-    @RequestMapping("/")
+    @RequestMapping("/api/books")
     public List<Book> index() {
     	System.out.println("hello");
         return bookService.allBooks();
@@ -32,18 +31,18 @@ public class BooksApi {
         return bookService.createBook(book);
     }
     
-    @RequestMapping("/{id}")
+    @RequestMapping("/api/books/{id}")
     public Book show(@PathVariable("id") Long id) {
         Book book = bookService.findBook(id);
         return book;
     }
-    @RequestMapping(value="/update/{id}", method=RequestMethod.PUT)
+    @RequestMapping(value="/api/books/{id}", method=RequestMethod.PUT)
     public Book update(@PathVariable("id") Long id, Book b) {
         Book book = bookService.updateBook(b);
         return book;
     }
     
-    @RequestMapping(value="/delete/{id}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/api/books/{id}", method=RequestMethod.DELETE)
     public void destroy(@PathVariable("id") Long id) {
         this.bookService.deleteBook(id);
     }
