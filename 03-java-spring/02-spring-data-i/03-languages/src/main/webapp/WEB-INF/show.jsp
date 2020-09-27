@@ -19,8 +19,10 @@
 		<h1><c:out value="${language.name}"/></h1>
 		<p>Creator: <c:out value="${language.creator}"/></p>
 		<p>Current Version: <c:out value="${language.currentVersion}"/></p>
-		<a href="/edit/${language.id}">Edit</a>
-		<a href="/delete/${ lang.id }">Delete</a>
+			<br>
+			<a href="/edit/${lang.id}">Edit</a>
+			<br>
+			<a href="/delete/${lang.id}">Delete</a>
 	</div>
 </body>
 </html>

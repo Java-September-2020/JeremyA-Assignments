@@ -19,6 +19,7 @@ import com.jeremyakatsa.languages.services.LanguagesService;
 
 
 @Controller
+@RequestMapping("/languages")
 public class LanguagesController {
 	private final LanguagesService langService;
 	
@@ -26,7 +27,7 @@ public class LanguagesController {
 		this.langService = service;
 	}
 	
-	@RequestMapping("/")
+	@RequestMapping("")
 	public String index(@ModelAttribute("language") Language language, Model model) {
 		model.addAttribute("languages", langService.allLanguages());
 		return "/index.jsp";
