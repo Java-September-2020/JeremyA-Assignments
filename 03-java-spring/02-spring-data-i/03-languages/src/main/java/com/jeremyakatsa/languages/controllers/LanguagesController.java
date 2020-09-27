@@ -1,14 +1,13 @@
 package com.jeremyakatsa.languages.controllers;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +27,7 @@ public class LanguagesController {
 	}
 	
 	@RequestMapping("/")
-	public String index(Model model) {
+	public String index(@ModelAttribute("language") Language language, Model model) {
 		model.addAttribute("languages", langService.allLanguages());
 		return "/index.jsp";
 	}
@@ -45,20 +44,17 @@ public class LanguagesController {
 		model.addAttribute("language", langService.findLanguage(id));
 		return "show.jsp";
 	}
-	@RequestMapping("/new")
-	public String newLanguage(@ModelAttribute("language") Language language) {
-		return "new.jsp";
-	}
+
 	@RequestMapping(value="/", method=RequestMethod.POST)
 	public String create(@Valid @ModelAttribute("language") Language lang, BindingResult result, @RequestParam Map<String,String> body) {
 		if(result.hasErrors())
-			return "new.jsp";
+			return "index.jsp";
 		else {
 			langService.createLanguage(lang);
 			return "redirect:/";
 		}
 	}
-	@RequestMapping("/{id}/edit")
+	@RequestMapping("/edit/{id}")
 	public String edit(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("language", langService.findLanguage(id));
 		return "edit.jsp";
@@ -70,9 +66,9 @@ public class LanguagesController {
 		langService.updateLanguage(lang);
 		return "redirect:/";
 	}
-	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	@GetMapping("/delete/{id}")
 	public String delete(@PathVariable("id") Long id) {
-		langService.deleteLanguage(id);
+		this.langService.deleteLanguage(id);
 		return "redirect:/";
 	}
 }

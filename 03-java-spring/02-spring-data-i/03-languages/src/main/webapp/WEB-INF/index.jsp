@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +15,9 @@
 </head>
 <body>
 	<div class="container">
+		<br>
 		<h1>Welcome to Languages Dot Com!</h1>
-		<a href="/new">Add a language...</a>
+		<br>
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -32,16 +34,35 @@
 					<td>${ lang.creator }</td>
 					<td>${ lang.currentVersion }</td>
 					<td>
-						<a class="btn btn-primary" href="/${ lang.id }/edit">Edit</a>
-						<form id="delete-form" action="/${lang.id}" method="post">
-						    <input type="hidden" name="_method" value="delete">
-						    <input class="btn btn-danger" type="submit" value="Delete">
-						</form>
+						<a href="/edit/${ lang.id }">Edit</a>
+						<a href="/delete/${lang.id}">Delete</a>
 					</td>
 				</tr>
 			</c:forEach>
 			</tbody>
 		</table>
+		<br>
+		<h3>New Language</h3>
+		
+		<form:form action="/" method="post" modelAttribute="language">
+		    <div class="form-group">
+		        <form:label path="name">Language Name</form:label>
+		        <form:errors path="name"/>
+		        <form:input class="form-control" path="name"/>
+		    </div>
+		    <div class="form-group">
+		        <form:label path="creator">Creator</form:label>
+		        <form:errors path="creator"/>
+		        <form:input class="form-control" path="creator"/>
+		    </div>
+			<div class="form-group">
+		        <form:label path="currentVersion">Current Version</form:label>
+		        <form:errors path="currentVersion"/>
+		        <form:input class="form-control" path="currentVersion"/>
+		    </div>
+		    <input type="submit" value="Submit"/>
+		</form:form>
+		
 	</div>
 </body>
 </html>
