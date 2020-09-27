@@ -22,11 +22,13 @@ public class BooksApi {
     
     @RequestMapping("/")
     public List<Book> index() {
+    	System.out.println("hello");
         return bookService.allBooks();
     }
     
-    @RequestMapping(value="/", method=RequestMethod.POST)
-    public Book create(Book book) {
+    @RequestMapping(value="/api/books", method=RequestMethod.POST)
+    public Book create(@RequestParam(value="title") String title, @RequestParam(value="description") String desc, @RequestParam(value="language") String lang, @RequestParam(value="pages") Integer numOfPages) {
+        Book book = new Book(title, desc, lang, numOfPages);
         return bookService.createBook(book);
     }
     

@@ -30,8 +30,8 @@ public class BooksController {
         return "/books/index.jsp";
     }
     @RequestMapping("/books/{index}")
-    public String findBookByIndex(Model model, @PathVariable("index") int index) {
-        Book book = bookService.findBookByIndex(index);
+    public String findBookByIndex(Model model, @PathVariable("index") Long id) {
+        Book book = bookService.findBookByIndex(id);
         model.addAttribute("book", book);
         return "/books/showBook.jsp";
     }
@@ -43,5 +43,9 @@ public class BooksController {
             bookService.createBook(book);
             return "redirect:/books";
         }
+    }
+    @RequestMapping("/books/new")
+    public String newBook() {
+    	return "/books/new.jsp";
     }
 }
