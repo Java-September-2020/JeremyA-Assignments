@@ -11,12 +11,12 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/main.css" />
-<title>Languages App</title>
+<title>Licenses</title>
 </head>
 <body>
 	<div class="container">
 		<br>
-		<h1>Welcome to Languages Dot Com!</h1>
+		<h1>New Person</h1>
 		<br>
 		<table class="table table-hover">
 			<thead>
@@ -30,12 +30,12 @@
 			<tbody>
 			<c:forEach items="${ languages }" var="lang">
 				<tr>
-					<td><a href="/${ lang.id }">${ lang.name }</a></td>
+					<td><a href="/languages/${ lang.id }">${ lang.name }</a></td>
 					<td>${ lang.creator }</td>
 					<td>${ lang.currentVersion }</td>
 					<td>
-						<a href="/edit/${lang.id}">Edit</a>
-						<a href="/delete/${lang.id}">Delete</a>
+						<a href="/languages/edit/${lang.id}">Edit</a>
+						<a href="/languages/delete/${lang.id}">Delete</a>
 					</td>
 				</tr>
 			</c:forEach>
