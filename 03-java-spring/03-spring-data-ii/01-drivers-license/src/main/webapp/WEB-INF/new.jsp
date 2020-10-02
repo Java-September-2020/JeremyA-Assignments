@@ -15,9 +15,20 @@
 </head>
 <body>
 	<div class="container">
-		<h1>${ person.firstName } ${ person.lastName }</h1>
-		<p><strong>License Number</strong> ${ person.license.getNumberAsString() }</p>
-		<p><strong>Expiration Date</strong> ${ person.license.getExpirationDateFormatted() }</p>
+		<h2>New Person</h2>
+		<form:form action="/" method="POST" modelAttribute="person">
+			<div class="form-group">
+		        <form:label path="firstName">First Name</form:label>
+		        <form:errors path="firstName"/>
+		        <form:input class="form-control" path="firstName"/>
+		    </div>
+		    <div class="form-group">
+		        <form:label path="lastName">Last Name</form:label>
+		        <form:errors path="lastName"/>
+		        <form:input class="form-control" path="lastName"/>
+		    </div>
+		    <button>Add Person</button>
+		</form:form>
 	</div>
 </body>
 </html>
