@@ -11,58 +11,14 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/main.css" />
-<title>Languages App</title>
+<title>Licenses</title>
 </head>
 <body>
 	<div class="container">
 		<br>
-		<h1>Welcome to Languages Dot Com!</h1>
+		<h1>New Person</h1>
 		<br>
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Creator</th>
-					<th>Version</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-			<c:forEach items="${ languages }" var="lang">
-				<tr>
-					<td><a href="/${ lang.id }">${ lang.name }</a></td>
-					<td>${ lang.creator }</td>
-					<td>${ lang.currentVersion }</td>
-					<td>
-						<a href="/edit/${lang.id}">Edit</a>
-						<a href="/delete/${lang.id}">Delete</a>
-					</td>
-				</tr>
-			</c:forEach>
-			</tbody>
-		</table>
-		<br>
-		<h3>New Language</h3>
-		
-		<form:form action="/" method="post" modelAttribute="language">
-		    <div class="form-group">
-		        <form:label path="name">Language Name</form:label>
-		        <form:errors path="name"/>
-		        <form:input class="form-control" path="name"/>
-		    </div>
-		    <div class="form-group">
-		        <form:label path="creator">Creator</form:label>
-		        <form:errors path="creator"/>
-		        <form:input class="form-control" path="creator"/>
-		    </div>
-			<div class="form-group">
-		        <form:label path="currentVersion">Current Version</form:label>
-		        <form:errors path="currentVersion"/>
-		        <form:input class="form-control" path="currentVersion"/>
-		    </div>
-		    <input type="submit" value="Submit"/>
-		</form:form>
-		
+		<form:form action="/persons"		
 	</div>
 </body>
 </html>
