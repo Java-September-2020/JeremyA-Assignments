@@ -18,7 +18,20 @@
 		<br>
 		<h1>New Person</h1>
 		<br>
-		<form:form action="/persons"		
+		<form:form action="/persons" method="post" modelAttribute="person">
+		<div class="form-group">
+			<form:label path="firstName">First Name</form:label>
+			<form:errors path="firstName"/>
+			<form:input class="form-control" path="firstName"/>
+		</div>
+		<div class="form-group">
+			<form:label path="lastName">Last Name</form:label>
+			<form:errors path="lastName"/>
+			<form:input class="form-control" path="lastName"/>
+		</div>
+		<br>
+		<input type="submit" value="Create"/>
+		</form:form>	
 	</div>
 </body>
 </html>

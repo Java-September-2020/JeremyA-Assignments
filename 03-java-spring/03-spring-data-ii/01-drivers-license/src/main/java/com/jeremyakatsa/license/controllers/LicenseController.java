@@ -20,7 +20,7 @@ public class LicenseController {
 		this.aService = service;
 	}
 	
-	@GetMapping("")
+	@GetMapping("/new")
 	public String license() {
 		return "license.jsp";
 	}

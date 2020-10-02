@@ -1,7 +1,7 @@
 package com.jeremyakatsa.license.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,16 +18,14 @@ public class PersonController {
 		this.aService = service;
 	}
 	
-	@GetMapping("")
+	@GetMapping("/new")
 	public String person() {
 		return "person.jsp";
 	}
 	
 	@PostMapping(value="/persons")
-	public String createPerson(@ModelAttribute("person") Person person, BindingResult result) {
+	public String createPerson(@ModelAttribute("person") Person person) {
 		aService.createPerson(person);
-		return "license.jsp";
-		
+		return "license.jsp";		
 	}
-
 }
