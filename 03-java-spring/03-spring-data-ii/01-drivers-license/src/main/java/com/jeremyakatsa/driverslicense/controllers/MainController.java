@@ -26,6 +26,7 @@ public class MainController {
 	public String NewPerson(@ModelAttribute("person") Person person) {
 		return "new.jsp";
 	}
+	
 	@RequestMapping(value="/", method=RequestMethod.POST)
 	public String CreatePerson(@Valid @ModelAttribute("person") Person person, BindingResult result) {
 		if(result.hasErrors() ) {
