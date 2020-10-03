@@ -43,4 +43,12 @@ public class MainController {
 		model.addAttribute("dojos", ninjadojos);
 		return "/ninjas/new.jsp";
 	}
+	@PostMapping("/ninjas")
+	public String CreateNinja(@Valid @ModelAttribute("ninja") Ninja ninja, BindingResult result) {
+		if(result.hasErrors()) {
+			return "/ninjas/new/jsp";
+		}
+		service.createNinja(ninja);
+		return "show.jsp";
+	}
 }

@@ -16,8 +16,7 @@
 <body>
 	<div class="container">
 		<h2>New Ninja</h2>
-		<h1>This Page Works!</h1>
-		<%-- <form:form action="/ninjas" method="POST" modelAttribute="ninja">
+		<form:form action="/ninjas" method="POST" modelAttribute="ninja">
 			<div class="form-group">
 		        <form:label path="dojo">Dojo</form:label>
 		        <form:errors path="dojo"/>
@@ -43,7 +42,7 @@
 		        <form:input class="form-control" path="age"/>
 		    </div>
 		    <button>Create</button>
-		</form:form> --%>
+		</form:form>
 	</div>
 </body>
 </html>

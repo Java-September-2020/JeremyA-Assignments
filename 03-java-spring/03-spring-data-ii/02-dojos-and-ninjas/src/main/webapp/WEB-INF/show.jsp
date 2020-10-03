@@ -11,13 +11,12 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
 	crossorigin="anonymous">
 <meta charset="ISO-8859-1">
-<title>DMV App</title>
+<title>Dojos & Ninjas</title>
 </head>
 <body>
 	<div class="container">
-		<h1>${ person.firstName } ${ person.lastName }</h1>
-		<p><strong>License Number</strong> ${ person.license.getNumberAsString() }</p>
-		<p><strong>Expiration Date</strong> ${ person.license.getExpirationDateFormatted() }</p>
+		<h1><c:out value="${ dojo.name }"/></h1>
+		<h1>This Page Works!</h1>
 	</div>
 </body>
 </html>
