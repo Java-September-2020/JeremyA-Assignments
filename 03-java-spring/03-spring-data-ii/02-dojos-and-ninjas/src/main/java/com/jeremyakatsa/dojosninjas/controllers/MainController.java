@@ -49,16 +49,12 @@ public class MainController {
 			return "/ninjas/new.jsp";
 		}
 		service.createNinja(ninja);
-		System.out.println("Line 51 Works");
 		return "redirect:/dojos/{id}";
 	}
 	@GetMapping("/dojos/{id}")
 	public String ShowNinjas(@PathVariable("id") Long id, Model model) {
-		System.out.println("Line 55 Works");
 		List<Ninja> ninjas = service.getNinjas();
-		System.out.println("Line 57 Works");
 		model.addAttribute("ninja", ninjas);
-		System.out.println("Line 59 Works");
 		return "show.jsp";
 	}
 }
