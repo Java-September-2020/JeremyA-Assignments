@@ -15,8 +15,10 @@
 </head>
 <body>
 	<div class="container">
-		<h1><c:out value="${ dojo.name }"/></h1>
-		<h1>This Page Works!</h1>
+		<h1>${ dojo.name }</h1>
+		<p><strong>First Name</strong> ${ ninja.firstName }</p>
+		<p><strong>Last Name</strong> ${ ninja.lastName }</p>
+		<p><strong>Age</strong> ${ ninja.age}</p>
 	</div>
 </body>
 </html>
