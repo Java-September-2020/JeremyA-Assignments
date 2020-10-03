@@ -4,12 +4,12 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.jeremyakatsa.dojosninjas.models.Dojo;
@@ -46,9 +46,19 @@ public class MainController {
 	@PostMapping("/ninjas")
 	public String CreateNinja(@Valid @ModelAttribute("ninja") Ninja ninja, BindingResult result) {
 		if(result.hasErrors()) {
-			return "/ninjas/new/jsp";
+			return "/ninjas/new.jsp";
 		}
 		service.createNinja(ninja);
+		System.out.println("Line 51 Works");
+		return "redirect:/dojos/{id}";
+	}
+	@GetMapping("/dojos/{id}")
+	public String ShowNinjas(@PathVariable("id") Long id, Model model) {
+		System.out.println("Line 55 Works");
+		List<Ninja> ninjas = service.getNinjas();
+		System.out.println("Line 57 Works");
+		model.addAttribute("ninja", ninjas);
+		System.out.println("Line 59 Works");
 		return "show.jsp";
 	}
 }

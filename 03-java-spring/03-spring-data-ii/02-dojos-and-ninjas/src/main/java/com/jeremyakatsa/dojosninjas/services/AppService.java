@@ -30,6 +30,9 @@ public class AppService {
 	public Ninja createNinja(Ninja ninja) {
 		return ninjaRepo.save(ninja);
 	}
+	public List<Ninja> getNinjas() {
+		return ninjaRepo.findAll();
+	}
 	
 }
 
