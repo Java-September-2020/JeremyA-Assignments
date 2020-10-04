@@ -1,32 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> 
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="ISO-8859-1">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
 	rel="stylesheet" 
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
 	crossorigin="anonymous">
-<meta charset="ISO-8859-1">
-<title>Dojos & Ninjas</title>
+<link rel="stylesheet" href="css/main.css" />
+<title>Dojos n Ninjas</title>
 </head>
 <body>
 	<div class="container">
-		<h2>New Ninja</h2>
-		<form:form action="/ninjas" method="POST" modelAttribute="ninja">
+		<h1>Dojos N Ninjas</h1>
+		<hr />
+		<h2>Add a Ninja</h2>
+		<form:form action="/ninjas" method="post" modelAttribute="ninja">
 			<div class="form-group">
-		        <form:label path="dojo">Dojo</form:label>
+		        <form:label path="dojo">Dojo Name</form:label>
 		        <form:errors path="dojo"/>
 		        <form:select class="form-control" path="dojo">
-		        <c:forEach items="${ dojos }" var="dojo">
-		        	<form:option value="${ dojo.id }">${ dojo.name }</form:option>
+		        <c:forEach items="${ dojos }" var="doj">
+		        	<option value="${ doj.id }">${ doj.name }</option>
 		        </c:forEach>
 		        </form:select>
 		    </div>
-			<div class="form-group">
+		    <div class="form-group">
 		        <form:label path="firstName">First Name</form:label>
 		        <form:errors path="firstName"/>
 		        <form:input class="form-control" path="firstName"/>
@@ -41,7 +43,7 @@
 		        <form:errors path="age"/>
 		        <form:input class="form-control" path="age"/>
 		    </div>
-		    <button>Create</button>
+		    <button>Add Ninja</button>
 		</form:form>
 	</div>
 </body>

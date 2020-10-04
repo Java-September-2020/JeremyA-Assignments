@@ -17,22 +17,19 @@ public class AppService {
 		this.dojoRepo = dRepo;
 		this.ninjaRepo = nRepo;
 	}
-	
-	public Dojo getDojo(Long id) {
-		return dojoRepo.findById(id).orElse(null);
-	}
-	public List<Dojo> getDojos() {
-		return dojoRepo.findAll();
-	}
 	public Dojo createDojo(Dojo dojo) {
 		return dojoRepo.save(dojo);
 	}
 	public Ninja createNinja(Ninja ninja) {
 		return ninjaRepo.save(ninja);
 	}
-	public List<Ninja> getNinjas() {
+	public List<Dojo> allDojos() {
+		return dojoRepo.findAll();
+	}
+	public List<Ninja> allNinjas() {
 		return ninjaRepo.findAll();
 	}
-	
+	public Dojo findDojo(Long id) {
+		return this.dojoRepo.findById(id).orElse(null);
+	}
 }
-
