@@ -18,6 +18,7 @@ public class ProductController {
 	private AppService appService;
 	public ProductController(AppService service) {
 		this.appService = service;
+		
 	}
 	@GetMapping("/")
 	public String Index(Model model) {
