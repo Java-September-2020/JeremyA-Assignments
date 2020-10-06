@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,15 +14,25 @@
 </head>
 <body>
 	<div class="container">
-		<nav>
-			<h3><a href="/">Products</a> | <a href="/categories">Categories</a></h3>
-		</nav>
-		<h2>All Products</h2>
-		<ul>
-		<c:forEach items="${ products }" var="prod">
-			<li><a href="/${ prod.id }">${ prod.name }</a></li>		
-		</c:forEach>
-		</ul>
+		<h2>New Product</h2>
+		<form:form action="/products" method="POST" modelAttribute="product">
+			<div class="form-group">
+		        <form:label path="name">Name</form:label>
+		        <form:errors path="name"/>
+		        <form:input class="form-control" path="name"/>
+		    </div>
+		    <div class="form-group">
+		        <form:label path="description">Description</form:label>
+		        <form:errors path="description"/>
+		        <form:input class="form-control" path="description"/>
+		    </div>
+		    <div class="form-group">
+		        <form:label path="price">Price</form:label>
+		        <form:errors path="price"/>
+		        <form:input class="form-control" path="price"/>
+		    </div>
+		    <button>Create</button>
+		</form:form>
 	</div>
 </body>
 </html>
