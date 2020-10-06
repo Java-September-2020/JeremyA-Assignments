@@ -17,13 +17,13 @@ public class AssociationController {
 	public AssociationController(AppService service) {
 		this.appService = service;
 	}
-	@PostMapping("/associations/{kind}")
-	public String Create(@Valid @ModelAttribute("association") Association association,
-			BindingResult result,
-			@PathVariable("kind") String kind) {
-		if(result.hasErrors())
-			return String.format("/%s/show.jsp", kind);
-		appService.createAssociation(association);
-		return "redirect:/";
-	}
+//	@PostMapping("/associations/{kind}")
+//	public String Create(@Valid @ModelAttribute("association") Association association,
+//			BindingResult result,
+//			@PathVariable("kind") String kind) {
+//		if(result.hasErrors())
+//			return String.format("/%s/show.jsp", kind);
+//		appService.createAssociation(association);
+//		return "redirect:/";
+//	}
 }

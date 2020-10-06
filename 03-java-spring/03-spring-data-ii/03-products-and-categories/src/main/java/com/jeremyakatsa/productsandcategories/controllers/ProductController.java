@@ -19,17 +19,18 @@ public class ProductController {
 	private AppService appService;
 	public ProductController(AppService service) {
 		this.appService = service;
-		
 	}
+	
 	@GetMapping("/")
 	public String Index() {
 		return "redirect:/products";
 	}
 	
-	@GetMapping("/products")
+	@RequestMapping("/products")
 	public String ProductIndex(@ModelAttribute("product") Product product) {
 		return "/products/index.jsp";
 	}
+	
 //	@GetMapping("/{id}")
 //	public String Show(@ModelAttribute("product") Association association, 
 //		@PathVariable("id") Long id, Model model) {
