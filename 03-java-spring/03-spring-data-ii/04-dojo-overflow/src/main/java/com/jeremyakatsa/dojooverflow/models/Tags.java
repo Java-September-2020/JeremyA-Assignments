@@ -1,7 +1,6 @@
 package com.jeremyakatsa.dojooverflow.models;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,87 +8,67 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="questions")
-public class Questions {
-	
-	//Methods
+@Table(name="tags")
+public class Tags {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	private String question;
+	private String subject;
 	@Column(updatable=false)
 	private Date createdAt;
 	private Date updatedAt;
-	@OneToMany(mappedBy="question", fetch=FetchType.LAZY)
-	private List<Answers> answers;
-	private List<Tags> tags;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="question_id")
+	private Questions questions;
 	
-	//Constructor
-	public Questions() {
-
+	public Tags() {
+		
 	}
-	
-	//Getters & Setters
+
 	public Long getId() {
 		return id;
 	}
-
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
-	public String getQuestion() {
-		return question;
+	public String getSubject() {
+		return subject;
 	}
 
-
-	public void setQuestion(String question) {
-		this.question = question;
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
-
 
 	public Date getCreatedAt() {
 		return createdAt;
 	}
 
-
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-
 
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 
-
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 
-
-	public List<Answers> getAnswers() {
-		return answers;
+	public Questions getQuestions() {
+		return questions;
 	}
 
-
-	public void setAnswers(List<Answers> answers) {
-		this.answers = answers;
-	}
-
-	public List<Tags> getTags() {
-		return tags;
-	}
-
-	public void setTags(List<Tags> tags) {
-		this.tags = tags;
+	public void setQuestions(Questions questions) {
+		this.questions = questions;
 	}
 	
-
+		
 }
