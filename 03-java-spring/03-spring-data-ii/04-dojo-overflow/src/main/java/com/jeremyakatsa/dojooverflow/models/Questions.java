@@ -24,8 +24,9 @@ public class Questions {
 	@Column(updatable=false)
 	private Date createdAt;
 	private Date updatedAt;
-	@OneToMany(mappedBy="question", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="questions", fetch=FetchType.LAZY)
 	private List<Answers> answers;
+	@OneToMany(mappedBy="questions", fetch=FetchType.LAZY)
 	private List<Tags> tags;
 	
 	//Constructor
