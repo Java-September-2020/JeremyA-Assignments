@@ -13,17 +13,22 @@
 </head>
 <body>
 	<div class="container">
-		<h1>This Page Works!</h1>
-		<%-- <hr />
-		<h2>Add a Dojo</h2>
-		<form:form action="/dojos" method="post" modelAttribute="dojo">
+		<br>
+		<h1>What Is Your Question?</h1>
+		<br>
+		<form:form action="/question" action="/tag" method="post" modelAttribute="question" modelAttribute="tag">
 			<div class="form-group">
-		        <form:label path="name">Dojo Name</form:label>
-		        <form:errors path="name"/>
-		        <form:input class="form-control" path="name"/>
+		        <form:label path="question">Question</form:label>
+		        <form:errors path="question"/>
+		        <form:input class="form-control" path="question"/>
 		    </div>
-		    <button>Add Dojo</button>
-		</form:form> --%>
+		    <div class="form-group">
+		        <form:label path="subject">Tags</form:label>
+		        <form:errors path="subject"/>
+		        <form:input class="form-control" path="subject"/>
+		    </div>
+		    <button>Submit</button>
+		</form:form>
 	</div>
 </body>
 </html>

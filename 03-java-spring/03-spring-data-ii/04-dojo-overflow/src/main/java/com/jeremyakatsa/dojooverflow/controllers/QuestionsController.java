@@ -1,12 +1,17 @@
 package com.jeremyakatsa.dojooverflow.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jeremyakatsa.dojooverflow.models.Questions;
+import com.jeremyakatsa.dojooverflow.models.Tags;
 import com.jeremyakatsa.dojooverflow.services.AppService;
 
 @Controller
@@ -30,6 +35,15 @@ public class QuestionsController {
 	@GetMapping("/questions/new")
 	public String NewQuestion(@ModelAttribute("question") Questions questions) {
 		return "new.jsp";
+	}
+	
+	@PostMapping("/question")
+	public String CreateQuestion(@Valid @ModelAttribute("question") Questions questions,
+			BindingResult qResult, @Valid @ModelAttribute("tag") Tags tags, BindingResult tResult) {
+		if(qResult.hasErrors() || tResult.hasErrors())
+			return "new.jsp";
+		this.appService.createQuestion(questions);
+		this.appService.createTag(tags);
 	}
 
 }
