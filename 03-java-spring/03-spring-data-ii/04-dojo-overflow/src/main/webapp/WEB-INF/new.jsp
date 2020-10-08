@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> 
 <!DOCTYPE html>
@@ -16,7 +18,11 @@
 		<br>
 		<h1>What Is Your Question?</h1>
 		<br>
-		<form:form action="/question" action="/tag" method="post" modelAttribute="question" modelAttribute="tag">
+		<form:form action="/question" method="post" modelAttribute="question" 
+		
+		<%-- modelAttribute="tag" --%>
+		
+		>
 			<div class="form-group">
 		        <form:label path="question">Question</form:label>
 		        <form:errors path="question"/>
