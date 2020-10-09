@@ -10,30 +10,10 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
 	crossorigin="anonymous">
 <link rel="stylesheet" href="css/main.css" />
-<title>Dojos n Ninjas</title>
+<title>Welcome</title>
 </head>
 <body>
-	<div class="container">
-		<h1>Dojos & Ninjas</h1>
-		<h3><a href="/dojos">Dojos</a></h3>
-		<hr />
-		<h2>${ dojo.name } Area Ninjas</h2>
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Age</th>	
-				</tr>
-			</thead>
-			<tbody>
-			<c:forEach items="${ dojo.ninjas }" var="ninja">
-				<tr>
-					<td>${ ninja.firstName } ${ ninja.lastName }</td>
-					<td>${ ninja.age }</td>
-				</tr>
-			</c:forEach>
-			</tbody>
-		</table>
-	</div>
+	<h1>Welcome, <c:out value="${user.email}" /></h1>
+	<a href="/logout">Logout</a>
 </body>
 </html>
