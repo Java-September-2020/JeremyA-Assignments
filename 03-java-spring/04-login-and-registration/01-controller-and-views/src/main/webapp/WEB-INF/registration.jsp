@@ -18,7 +18,7 @@
     
     <p><form:errors path="user.*"/></p>
     
-    <form:form method="POST" action="/registration" modelAttribute="user">
+    <form:form method="post" action="/registration" modelAttribute="user">
         <p>
             <form:label path="email">Email:</form:label>
             <form:input type="email" path="email"/>

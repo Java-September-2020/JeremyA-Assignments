@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jeremyakatsa.controllerandviews.models.User;
 import com.jeremyakatsa.controllerandviews.services.UserService;
@@ -24,36 +25,50 @@ public class Users {
     
     @RequestMapping("/registration")
     public String registerForm(@ModelAttribute("user") User user) {
-        return "registrationPage.jsp";
+        return "registration.jsp";
     }
     @RequestMapping("/login")
     public String login() {
-        return "loginPage.jsp";
+        return "login.jsp";
     }
     
     @RequestMapping(value="/registration", method=RequestMethod.POST)
     public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {
         // if result has errors, return the registration page (don't worry about validations just now)
     	if(result.hasErrors())
-    		return "registrationPage.jsp";
+    		return "registration.jsp";
         // else, save the user in the database, save the user id in session, and redirect them to the /home route
     	this.userService.registerUser(user);
     	return "redirect:/home";
     }
     
     @RequestMapping(value="/login", method=RequestMethod.POST)
-    public String loginUser(@RequestParam("email") String email, @RequestParam("password") String password, Model model, HttpSession session) {
+    public String loginUser(@RequestParam("email") String email, @RequestParam("password") 
+    String password, Model model, HttpSession session, RedirectAttributes redirectAttrs) {
         // if the user is authenticated, save their user id in session
-        // else, add error messages and return the login page
+    	if(this.userService.authenticateUser(email, password)) {
+    		User user = this.userService.findByEmail(email);
+    		session.setAttribute("user_id", user.getId());
+			return "redirect:/home";
+		}
+    	// else, add error messages and return the login page
+    	redirectAttrs.addFlashAttribute("loginError", "Invalid Credentials");
+    	return "login.jsp";
     }
     
     @RequestMapping("/home")
     public String home(HttpSession session, Model model) {
         // get user from session, save them in the model and return the home page
+    	Long userId = (Long)session.getAttribute("user_id");
+		User user = this.userService.findUserById(userId);
+		model.addAttribute("user", user);
+		return "home.jsp";
     }
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
         // invalidate session
+    	session.invalidate();
         // redirect to login page
+    	return "redirect:/login";
     }
 }
