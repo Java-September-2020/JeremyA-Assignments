@@ -38,29 +38,30 @@ public class Users {
     	if(result.hasErrors())
     		return "registration.jsp";
         // else, save the user in the database, save the user id in session, and redirect them to the /home route
-    	this.userService.registerUser(user);
+    	User u = userService.registerUser(user);
+    	session.setAttribute("userId", u.getId());
     	return "redirect:/home";
     }
     
     @RequestMapping(value="/login", method=RequestMethod.POST)
     public String loginUser(@RequestParam("email") String email, @RequestParam("password") 
-    String password, Model model, HttpSession session, RedirectAttributes redirectAttrs) {
+    String password, Model model, HttpSession session) {
         // if the user is authenticated, save their user id in session
     	if(this.userService.authenticateUser(email, password)) {
-    		User user = this.userService.findByEmail(email);
-    		session.setAttribute("user_id", user.getId());
+    		User user = userService.findByEmail(email);
+    		session.setAttribute("userId", user.getId());
 			return "redirect:/home";
 		}
     	// else, add error messages and return the login page
-    	redirectAttrs.addFlashAttribute("loginError", "Invalid Credentials");
+    	model.addAttribute("error", "Invalid Credentials");
     	return "login.jsp";
     }
     
     @RequestMapping("/home")
     public String home(HttpSession session, Model model) {
         // get user from session, save them in the model and return the home page
-    	Long userId = (Long)session.getAttribute("user_id");
-		User user = this.userService.findUserById(userId);
+    	Long userId = (Long)session.getAttribute("userId");
+		User user = userService.findUserById(userId);
 		model.addAttribute("user", user);
 		return "home.jsp";
     }
