@@ -8,13 +8,17 @@
     margin: 0 auto;
 	}
 #wrapper {
-         padding: 100px;
-         width: 1000px;
+         padding: 30px;
+         width: 900px;
          height: auto;
        }
-       	   #welcome {
+       	   	
+       	   #welcome-ninja {
        	      display: inline-block;
-       	   }	
+       	   }
+       	   h3 {
+       	   	  font-size: 25px;
+       	   }
            #register{
                display: inline-block;
                width: 400px;
@@ -25,11 +29,20 @@
                padding-top: 50px;
                vertical-align: top;
            }
+           #errors {
+	           color: gray;
+	           font-style: italic;
+           }
            #city {
        	      display: inline-block;
+       	      width: 330px;
        	   }
        	   #state {
+       	   	  radius: 10px;
        	      display: inline-block;
+       	      margin-left: 5px;
+       	      width: 50px;
+       	      height: 32px;
        	   }
            #rate {
              display: inline-block;

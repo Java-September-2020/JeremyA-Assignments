@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.jeremyakatsa.eventsbelt.models.State;
 import com.jeremyakatsa.eventsbelt.models.User;
 import com.jeremyakatsa.eventsbelt.services.UserService;
 import com.jeremyakatsa.eventsbelt.validations.UserValidator;
@@ -27,19 +29,21 @@ public class Users {
         this.userValidator = userValidator;
     }
     
-    @GetMapping("")
-    public String Index(@ModelAttribute("user") User user) {
+    @RequestMapping("")
+    public String Index(@ModelAttribute("user") User user, Model model) {
+    	model.addAttribute("states", State.States);
         return "/users/index.jsp";
     }
     
-    @PostMapping("/")
+    @PostMapping("/register")
     public String Register(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {
     	userValidator.validate(user, result);
-        // if result has errors, return the registration page
-    	if(result.hasErrors())
+        // if result has errors, return the index page
+    	if(result.hasErrors()) {
     		return "/users/index.jsp";
+    	}
         // else, save the user in the database, save the user id in session, and redirect them to the /home route
-    	User newUser = userService.registerUser(user);
+    	User newUser = this.userService.registerUser(user);
     	session.setAttribute("userId", newUser.getId());
     	return "redirect:/events";
     }
@@ -49,13 +53,13 @@ public class Users {
     String password, HttpSession session, RedirectAttributes redirs) {
         // if the user is authenticated, save their user id in session
     	if(this.userService.authenticateUser(email, password)) {
-    		User user = userService.findByEmail(email);
+    		User user = userService.getUserByEmail(email);
     		session.setAttribute("userId", user.getId());
 			return "redirect:/events";
 		}
     	// else, add error messages and return the login page
     	redirs.addFlashAttribute("error", "Invalid Email/Password Match");
-    	return "login.jsp";
+    	return "redirect:";
     }
     
     @GetMapping("/logout")

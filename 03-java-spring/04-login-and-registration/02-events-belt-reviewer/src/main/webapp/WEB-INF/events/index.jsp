@@ -13,7 +13,7 @@
 </head>
 	<body>
 		<div id="wrapper" class="text-dark">
-			<h2 id="welcome">Welcome, Ninja</h2>
+			<h2 id="welcome-ninja">Welcome, Ninja</h2>
 			<p>Here are some of the events in your state:</p>
 			<form id="logout" action="/logout">
 					<input type="submit" value="Logout"/>

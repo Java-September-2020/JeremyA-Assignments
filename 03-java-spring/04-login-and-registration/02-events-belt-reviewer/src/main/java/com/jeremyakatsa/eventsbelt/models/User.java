@@ -31,19 +31,19 @@ public class User {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    @NotBlank (message="Required")
+    @NotBlank (message="required")
     private String firstName;
-    @NotBlank (message="Required")
+    @NotBlank (message="required")
     private String lastName;
-    @NotBlank (message="Required")
-    @Email(message="Email must be valid")
+    @NotBlank (message="required")
+    @Email(message="must be valid format")
     private String email;
-    @NotBlank (message="Required")
+    @NotBlank (message="required")
     private String city;
-    @NotBlank (message="Required")
+    @NotBlank (message="required")
     private String state;
-    @NotBlank (message="Required")
-    @Size(min=8, message="Password must be greater than 5 characters")
+    @NotBlank (message="required")
+    @Size(min=8, message="must be greater than 8 characters")
     private String password;
     @Transient
     private String passwordConfirmation;
@@ -75,7 +75,6 @@ public class User {
     
     public User() {
     }
-    
 	public Long getId() {
 		return id;
 	}
@@ -142,11 +141,19 @@ public class User {
 	public void setEventCreated(List<Event> eventCreated) {
 		this.eventCreated = eventCreated;
 	}
+	public List<Message> getMessagesCreated() {
+		return messagesCreated;
+	}
+	public void setMessagesCreated(List<Message> messagesCreated) {
+		this.messagesCreated = messagesCreated;
+	}
 	public List<Event> getEventsJoined() {
 		return eventsJoined;
 	}
 	public void setEventsJoined(List<Event> eventsJoined) {
 		this.eventsJoined = eventsJoined;
 	}
+    
+	
     
 }
