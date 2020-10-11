@@ -1,6 +1,5 @@
 package com.jeremyakatsa.eventsbelt.services;
 
-import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
@@ -23,20 +22,14 @@ public class UserService {
         return userRepository.save(user);
     }
     
+    // find user by id
+    public User findUserById(Long id) {
+    	return this.userRepository.findById(id).orElse(null);
+    }
+    
     // find user by email
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
-    }
-    
-    // find user by id
-    public User findUserById(Long id) {
-    	Optional<User> u = userRepository.findById(id);
-    	
-    	if(u.isPresent()) {
-            return u.get();
-    	} else {
-    	    return null;
-    	}
     }
     
     // authenticate user
