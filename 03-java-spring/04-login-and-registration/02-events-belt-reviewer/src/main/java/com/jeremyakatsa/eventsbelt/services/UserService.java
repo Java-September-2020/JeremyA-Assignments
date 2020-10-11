@@ -10,7 +10,7 @@ import com.jeremyakatsa.eventsbelt.repositories.UserRepository;
 
 @Service
 public class UserService {
-private final UserRepository userRepository;
+	private final UserRepository userRepository;
     
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
