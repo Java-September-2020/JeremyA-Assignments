@@ -22,7 +22,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import org.apache.logging.log4j.message.Message;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -76,6 +75,7 @@ public class User {
     
     public User() {
     }
+    
 	public Long getId() {
 		return id;
 	}
