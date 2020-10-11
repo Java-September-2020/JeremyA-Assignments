@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.jeremyakatsa.eventsbelt.models.Event;
 
 public interface EventRepository extends CrudRepository<Event, Long>{
-	List<Event> findAll();
-	Optional<Event> findById(Long id); 
+	List<Event> findByState(String state);
+	List<Event> findByStateIsNot(String state); 
 
 }
