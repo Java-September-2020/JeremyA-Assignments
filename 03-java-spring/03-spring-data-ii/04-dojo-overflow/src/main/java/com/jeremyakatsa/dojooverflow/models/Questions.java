@@ -9,6 +9,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -28,7 +31,12 @@ public class Questions {
 	private Date updatedAt;
 	@OneToMany(mappedBy="questions", fetch=FetchType.LAZY)
 	private List<Answers> answers;
-	@OneToMany(mappedBy="questions", fetch=FetchType.LAZY)
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+		name="tags",
+		joinColumns = @JoinColumn(name="question_id"),
+		inverseJoinColumns = @JoinColumn(name="tag_id")
+		)
 	private List<Tags> tags;
 	
 	//Constructor

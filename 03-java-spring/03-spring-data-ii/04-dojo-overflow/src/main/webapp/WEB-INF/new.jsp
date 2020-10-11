@@ -18,11 +18,7 @@
 		<br>
 		<h1>What Is Your Question?</h1>
 		<br>
-		<form:form action="/question" method="post" modelAttribute="question" 
-		
-		<%-- modelAttribute="tag" --%>
-		
-		>
+		<form:form action="/question" method="post" modelAttribute="question">
 			<div class="form-group">
 		        <form:label path="question">Question</form:label>
 		        <form:errors path="question"/>

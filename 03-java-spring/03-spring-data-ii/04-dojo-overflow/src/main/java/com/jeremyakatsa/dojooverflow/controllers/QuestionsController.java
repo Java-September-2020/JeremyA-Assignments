@@ -39,13 +39,11 @@ public class QuestionsController {
 	
 	@PostMapping("/question")
 	public String CreateQuestion(
-			@Valid @ModelAttribute("question") Questions questions,	BindingResult qResult, 
-			@Valid @ModelAttribute("tag") Tags tags, BindingResult tResult) {
-		if(qResult.hasErrors() || tResult.hasErrors())
+			@Valid @ModelAttribute("question") Questions questions,	BindingResult result) {
+		if(result.hasErrors())
 			return "new.jsp";
 		this.appService.createQuestion(questions);
-		this.appService.createTag(tags);
-		return "redirect:";
+		return "redirect:/";
 	}
 
 }
