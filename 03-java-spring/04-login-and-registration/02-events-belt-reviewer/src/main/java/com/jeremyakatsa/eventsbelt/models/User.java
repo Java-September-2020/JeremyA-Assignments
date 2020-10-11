@@ -1,6 +1,5 @@
 package com.jeremyakatsa.eventsbelt.models;
 
-
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +22,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
 
 @Entity
 @Table(name="users")

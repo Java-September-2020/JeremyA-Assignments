@@ -17,7 +17,7 @@
 		<div id="wrapper" class="text-dark">
 			<h2 id="welcome">Welcome</h2>
 			<br>
-			<form:form id="register" action="/register" method="post" modelAttribute="user">
+			<form:form id="register" action="/" method="post" modelAttribute="user">
 				<h3 >Register</h3>
 				<br>
 				<%-- <p><form:errors path="user.*"/></p> --%>

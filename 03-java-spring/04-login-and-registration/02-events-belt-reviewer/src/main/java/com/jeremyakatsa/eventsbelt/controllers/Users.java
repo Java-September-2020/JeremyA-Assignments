@@ -19,7 +19,6 @@ import com.jeremyakatsa.eventsbelt.services.UserService;
 import com.jeremyakatsa.eventsbelt.validations.UserValidator;
 
 @Controller
-@RequestMapping("/")
 public class Users {
     private final UserService userService;
     private final UserValidator userValidator;
@@ -29,17 +28,18 @@ public class Users {
         this.userValidator = userValidator;
     }
     
-    @RequestMapping("")
+    @RequestMapping("/")
     public String Index(@ModelAttribute("user") User user, Model model) {
     	model.addAttribute("states", State.States);
         return "/users/index.jsp";
     }
     
-    @PostMapping("/register")
-    public String Register(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {
+    @PostMapping("/")
+    public String Register(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session, Model model) {
     	userValidator.validate(user, result);
         // if result has errors, return the index page
     	if(result.hasErrors()) {
+    		model.addAttribute("states", State.States);
     		return "/users/index.jsp";
     	}
         // else, save the user in the database, save the user id in session, and redirect them to the /home route
