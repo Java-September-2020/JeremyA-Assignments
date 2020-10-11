@@ -12,22 +12,12 @@
 			crossorigin="anonymous">
 		<meta charset="ISO-8859-1">
 		
-	<title><c:out value="${tvshow.title}"/></title>
+	<title><c:out value="${event.name}"/></title>
 </head>
 	<body>
 		<div id="wrapper" class="text-secondary">
-			<h1><c:out value="${tvshow.title}"/></h1>
-			<h4>Network: <strong><c:out value="${tvshow.network}"/></strong></h4>
-			<br>
-			<form action="/tvshows/${tvshow.id}/edit">
-					<input type="submit" value="Edit"/>
-			</form>
-			<br>
-			<form id="rate" class="form-group" method="post">
-				<p id="rating">Leave A Rating:</p>
-			    <input id="rating-input" class="form-control" type="number" step="0.01" name="rating">
-			    <input id="rating-button" type="submit" value="Rate"/>
-		    </form>
+			<h1><c:out value="${event.name}"/></h1>
+			<h4>This Page Works</h4>
 		</div>
 	</body>
 </html>

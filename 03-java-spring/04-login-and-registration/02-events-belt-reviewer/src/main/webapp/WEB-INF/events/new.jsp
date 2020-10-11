@@ -12,25 +12,11 @@
     crossorigin="anonymous">
 
 <meta charset="ISO-8859-1">
-<title>Create Tv Show</title>
+<title>New Event</title>
 </head>
 <body>
 	<div id="wrapper">
-		<h2>Create new show</h2>
-			<form:form action="/tvshows/new" method="post" modelAttribute="newShow">
-			    <form:hidden path="showsAdder" value="${user.id}" />
-				<div class="form-group">
-					<form:label path="title">Title</form:label>
-					<form:errors path="title"></form:errors>
-					<form:input class="form-control" path="title"></form:input>
-				</div>
-				<div class="form-group">
-					<form:label path="network">Network</form:label>
-					<form:errors path="network"></form:errors>
-					<form:input class="form-control" path="network"></form:input>
-				</div>
-			    	<input type="submit" value="Create"/>
-		</form:form>
+		<h2>This Page Works</h2>
 		
 	</div>
 </body>

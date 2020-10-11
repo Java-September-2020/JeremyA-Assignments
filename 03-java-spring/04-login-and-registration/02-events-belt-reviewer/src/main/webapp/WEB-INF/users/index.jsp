@@ -20,7 +20,6 @@
 			<form:form id="register" action="/" method="post" modelAttribute="user">
 				<h3 >Register</h3>
 				<br>
-				<%-- <p><form:errors path="user.*"/></p> --%>
 			    <div class="form-group">
 			        <form:label path="firstName">First Name</form:label>
 			        <form:errors id="errors" path="firstName"/>
