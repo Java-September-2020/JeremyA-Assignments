@@ -15,14 +15,13 @@ import com.jeremyakatsa.eventsbelt.validations.UserValidator;
 @Controller
 @RequestMapping ("/events")
 public class Events {
-	@GetMapping("")
-	public String Index() {
-		return "/events/index.jsp";
-	}
-//	@Autowired
 //	private final UserService userService;
-//	@Autowired
-//    private final UserValidator eventService;
+//    private final EventService eventService;
+//    
+//    public Events(UserService userService, EventService eventService) {
+//    	this.userService = userService;
+//    	this.eventService = eventService;
+//    }
 //    
 //	
 //	@GetMapping("")
