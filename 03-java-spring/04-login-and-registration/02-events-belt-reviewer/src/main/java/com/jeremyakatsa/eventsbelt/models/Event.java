@@ -13,9 +13,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -28,6 +30,7 @@ public class Event {
 	private Long id;
 	@NotBlank (message="Required")
 	private String name;
+	@Future
 	@NotBlank (message="Required")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private int date;
@@ -40,6 +43,8 @@ public class Event {
     private Date createdAt;
     @DateTimeFormat(pattern = "yyy-MM-DD HH:mm:ss")
     private Date updatedAt;
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="event")
+    private List<Message> messages;
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="user_id")
 	private User eventCreator;
@@ -110,6 +115,12 @@ public class Event {
 		this.updatedAt = updatedAt;
 	}
 	
+	public List<Message> getMessages() {
+		return messages;
+	}
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
 	public User getEventCreator() {
 		return eventCreator;
 	}

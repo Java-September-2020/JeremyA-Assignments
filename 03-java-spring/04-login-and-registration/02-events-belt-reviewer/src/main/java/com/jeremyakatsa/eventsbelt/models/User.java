@@ -51,7 +51,7 @@ public class User {
     @DateTimeFormat(pattern = "yyy-MM-DD HH:mm:ss")
     private Date updatedAt;
     @OneToMany(mappedBy="eventCreator", fetch=FetchType.LAZY)
-	private List<Event> eventCreated;
+	private List<Event> eventCreator;
     @OneToMany(mappedBy="messagesCreator", fetch=FetchType.LAZY)
 	private List<Message> messagesCreated;
     @ManyToMany(fetch=FetchType.LAZY)
@@ -134,10 +134,10 @@ public class User {
 		this.updatedAt = updatedAt;
 	}
 	public List<Event> getEventCreated() {
-		return eventCreated;
+		return eventCreator;
 	}
-	public void setEventCreated(List<Event> eventCreated) {
-		this.eventCreated = eventCreated;
+	public void setEventCreated(List<Event> eventCreator) {
+		this.eventCreator = eventCreator;
 	}
 	public List<Message> getMessagesCreated() {
 		return messagesCreated;

@@ -29,6 +29,9 @@ public class Message {
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="user_id")
 	private User messagesCreator;
+	@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="event_id")
+    private Event event;
 	
 	@PrePersist
     protected void onCreate(){
@@ -37,6 +40,13 @@ public class Message {
 
     public Message() {
     }
+    
+    public Message(User messagesCreator, Event event, String comment) {
+    	this.messagesCreator = messagesCreator;
+    	this.event = event;
+    	this.comment = comment;
+    }
+    
 	public Long getId() {
 		return id;
 	}
@@ -60,6 +70,14 @@ public class Message {
 	}
 	public void setMessagesCreator(User messagesCreator) {
 		this.messagesCreator = messagesCreator;
+	}
+
+	public Event getEvent() {
+		return event;
+	}
+
+	public void setEvent(Event event) {
+		this.event = event;
 	}
     
 
