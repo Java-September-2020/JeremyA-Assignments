@@ -39,32 +39,7 @@
 			</table>
 			<br>
 			<p>Here are some of the events in other states.</p>
-			<%-- <div class="float float-left">
-				<h3>Tv-Shows</h3>
-				<table class="table table-hover">
-					<thead>
-						<tr class="text-secondary">
-							<th>Show</th>
-							<th>Network</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${tvshow}" var="tvshow">
-							<tr>
-								<td>
-									<a href="/tvshows/${tvshow.id}">${tvshow.title}</a>
-								</td>
-								<td>
-									<p>${ tvshow.network }</p>
-								</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-				<form action="/tvshows/new">
-					<input type="submit" value="Add New Show"/>
-				</form>
-			</div> --%>
+			
 		</div>
 	</body>
 </html>
