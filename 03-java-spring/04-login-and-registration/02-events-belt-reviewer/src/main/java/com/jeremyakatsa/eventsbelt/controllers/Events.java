@@ -29,7 +29,7 @@ public class Events {
     
 	
 	@GetMapping("")
-    public String Index(HttpSession session, Model model) {
+    public String Index(@ModelAttribute("event") Event event, Model model, HttpSession session) {
 		Long userId = (Long)session.getAttribute("userId");
 		if(session.getAttribute("userId") == null) {
 			return "redirect:/";
@@ -43,7 +43,7 @@ public class Events {
 		return "/events/index.jsp";
     }
 	
-	@PostMapping("")
+	@PostMapping("/events")
 	public String addEvent(@ModelAttribute("event") Event newEvent, Model model, BindingResult result,
 			HttpSession session) {
 		if(result.hasErrors()) {

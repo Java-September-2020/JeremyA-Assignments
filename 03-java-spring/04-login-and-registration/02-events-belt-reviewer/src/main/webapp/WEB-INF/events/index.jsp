@@ -83,7 +83,7 @@
 			<div class="new-event float float-right">
 				<p>Plan an Event:</p>
 				<form:form action="/events" method="post" modelAttribute="event">
-					<form:hidden value="${ user.id }" path="planner"/>
+					<form:hidden value="${ user.id }" path="eventCreator"/>
 					<div class="form-group">
 						<form:label path="name">Name</form:label>
 						<form:errors path="name"></form:errors>
