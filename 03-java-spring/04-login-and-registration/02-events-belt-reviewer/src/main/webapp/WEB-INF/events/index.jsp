@@ -90,9 +90,9 @@
 						<form:input class="form-control" path="name"></form:input>
 					</div>
 					<div class="form-group">
-						<form:label path="eventDate">Date</form:label>
-						<form:errors path="eventDate"></form:errors>
-						<form:input class="form-control" type="date" value="${ now }" path="eventDate"></form:input>
+						<form:label path="date">Date</form:label>
+						<form:errors path="date"></form:errors>
+						<form:input class="form-control" type="date" path="date"></form:input>
 					</div>
 					 <div class="form-group">
 				        <form:label path="city">City</form:label>

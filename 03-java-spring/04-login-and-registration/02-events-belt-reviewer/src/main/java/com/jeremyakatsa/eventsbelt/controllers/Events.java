@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jeremyakatsa.eventsbelt.models.Event;
@@ -42,12 +43,14 @@ public class Events {
 		return "/events/index.jsp";
     }
 	
-	@GetMapping("/new")
-	public String addEvent(@ModelAttribute("event") Event event, BindingResult result) {
+	@PostMapping("")
+	public String addEvent(@ModelAttribute("event") Event newEvent, Model model, BindingResult result,
+			HttpSession session) {
 		if(result.hasErrors()) {
+			model.addAttribute("userId", session.getAttribute("user_id"));
 			return "/events/index.jsp";
 		} else {
-			this.eventService.create(event);
+			this.eventService.create(newEvent);
 			return "redirect:/events";
 		}
 	}
