@@ -14,7 +14,7 @@
 	<body>
 		<div id="wrapper" class="text-dark">
 			<h2 id="welcome-ninja">Welcome, Ninja</h2>
-			<p>Here are some of the events in your state:</p>
+			<h3>Here are some of the events in your state:</h3>
 			<%-- <form id="logout" action="/logout">
 					<input type="submit" value="Logout"/>
 			</form> --%>
@@ -30,16 +30,87 @@
 				<c:forEach items="${userStates}" var="event">
 					<tr>
 						<td><a href="/events/${event.id}">${event.name }</a></td>
-						<td>${ event.eventDate }</td>
+						<td>${ event.date }</td>
 						<td>${ event.city }</td>
 						<td>${ event.eventCreator.firstName }</td>
+						<%-- <td>
+							<c:choose>
+								<c:when test="${event.eventCreator.id == user.id}">
+									<a href="/events/${event.id}/edit">Edit</a>
+									<form class="delete-form" action="/events/${event.id}" method="post">
+										<input type="hidden" name="_method" value="delete"/>
+										<button>Delete</button>
+									</form>
+								</c:when>
+							</c:choose>
+						</td> --%>
 					</tr>
 				</c:forEach>
 				</tbody>
 			</table>
 			<br>
-			<p>Here are some of the events in other states.</p>
-			
+			<h3>Here are some of the events in other states.</h3>
+			<table>
+				<thead>
+					<th>Name</th>
+					<th>Date</th>
+					<th>Location</th>
+					<th>Host</th>
+					<th>Action/Status</th>
+				</thead>
+				<tbody>
+				<c:forEach items="${otherStates}" var="event">
+					<tr>
+						<td><a href="/events/${event.id}">${event.name }</a></td>
+						<td>${ event.date }</td>
+						<td>${ event.city }</td>
+						<td>${ event.eventCreator.firstName }</td>
+						<%-- <td>
+							<c:choose>
+								<c:when test="${event.eventCreator.id == user.id}">
+									<a href="/events/${event.id}/edit">Edit</a>
+									<form class="delete-form" action="/events/${event.id}" method="post">
+										<input type="hidden" name="_method" value="delete"/>
+										<button>Delete</button>
+									</form>
+								</c:when>
+							</c:choose>
+						</td> --%>
+					</tr>
+				</c:forEach>
+				</tbody>
+			</table>
+			<div class="new-event float float-right">
+				<p>Plan an Event:</p>
+				<form:form action="/events" method="post" modelAttribute="event">
+					<form:hidden value="${ user.id }" path="planner"/>
+					<div class="form-group">
+						<form:label path="name">Name</form:label>
+						<form:errors path="name"></form:errors>
+						<form:input class="form-control" path="name"></form:input>
+					</div>
+					<div class="form-group">
+						<form:label path="eventDate">Date</form:label>
+						<form:errors path="eventDate"></form:errors>
+						<form:input class="form-control" type="date" value="${ now }" path="eventDate"></form:input>
+					</div>
+					 <div class="form-group">
+				        <form:label path="city">City</form:label>
+				        <form:errors path="city"/>
+				        <form:input class="form-control" path="city" />
+				    </div>
+				    <div class="form-group">
+				        <form:label path="state">State</form:label>
+				        <form:errors path="state"/>
+						<form:select class="form-control" path="state">
+						<c:forEach items="${ states }" var="state">
+							<option value="${ state }">${ state }</option>
+						</c:forEach>
+						</form:select>
+				    </div>
+				    <button>Create Event</button>
+			</form:form>
+			</div>
 		</div>
 	</body>
 </html>
