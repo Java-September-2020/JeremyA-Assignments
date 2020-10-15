@@ -1,6 +1,10 @@
 package com.jeremyakatsa.eventsbelt.controllers;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +21,7 @@ import com.jeremyakatsa.eventsbelt.services.EventService;
 import com.jeremyakatsa.eventsbelt.services.UserService;
 
 @Controller
-@RequestMapping ("/events")
+@RequestMapping("/events")
 public class Events {
 	private final UserService userService;
     private final EventService eventService;
@@ -27,6 +31,10 @@ public class Events {
     	this.eventService = eventService;
     }
     
+    private String dateFormater() {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		return dateFormat.format(new Date());
+	}    
 	
 	@GetMapping("")
     public String Index(@ModelAttribute("event") Event event, Model model, HttpSession session) {
@@ -38,16 +46,23 @@ public class Events {
 		User user = userService.findById(userId);
 		model.addAttribute("usersStates", this.eventService.allEventsWithState(user.getState()));
 		model.addAttribute("otherStates", this.eventService.allEventsNotState(user.getState()));
+		model.addAttribute("dateFormater", dateFormater());
 		model.addAttribute("user", user);
 		model.addAttribute("states", State.States);
 		return "/events/index.jsp";
     }
 	
-	@PostMapping("/events")
-	public String addEvent(@ModelAttribute("event") Event newEvent, Model model, BindingResult result,
+	@PostMapping("")
+	public String addEvent(@Valid @ModelAttribute("event") Event newEvent, Model model, BindingResult result,
 			HttpSession session) {
 		if(result.hasErrors()) {
-			model.addAttribute("userId", session.getAttribute("user_id"));
+			Long userId = (Long)session.getAttribute("userId");
+			User user = userService.findById(userId);
+			model.addAttribute("usersStates", this.eventService.allEventsWithState(user.getState()));
+			model.addAttribute("otherStates", this.eventService.allEventsNotState(user.getState()));
+			model.addAttribute("dateFormater", dateFormater());
+			model.addAttribute("user", user);
+			model.addAttribute("states", State.States);
 			return "/events/index.jsp";
 		} else {
 			this.eventService.create(newEvent);

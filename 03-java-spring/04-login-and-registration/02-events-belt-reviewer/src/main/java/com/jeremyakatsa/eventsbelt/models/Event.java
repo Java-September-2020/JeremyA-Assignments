@@ -1,5 +1,8 @@
 package com.jeremyakatsa.eventsbelt.models;
 
+
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -31,9 +34,8 @@ public class Event {
 	@NotBlank (message="Required")
 	private String name;
 	@Future
-	@NotBlank (message="Required")
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private int date;
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
+	private Date date;
     @NotBlank (message="Required")
     private String city;
     @NotBlank (message="Required")
@@ -65,7 +67,10 @@ public class Event {
         this.updatedAt = new Date();
     }
     
-    
+    public String getEventDateFormatted() {
+    	SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+    	return dateFormat.format(this.date);
+    }
     
     public Event() {
     	
@@ -84,10 +89,11 @@ public class Event {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getDate() {
+	
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(int date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	public String getCity() {
