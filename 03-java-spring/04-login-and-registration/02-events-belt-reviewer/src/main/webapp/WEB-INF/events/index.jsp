@@ -33,7 +33,7 @@
 						<td>${ event.date }</td>
 						<td>${ event.city }</td>
 						<td>${ event.eventCreator.firstName }</td>
-						<%-- <td>
+						<td>
 							<c:choose>
 								<c:when test="${event.eventCreator.id == user.id}">
 									<a href="/events/${event.id}/edit">Edit</a>
@@ -42,8 +42,18 @@
 										<button>Delete</button>
 									</form>
 								</c:when>
+								<c:otherwise>
+									<c:choose>
+										<c:when test="${event.userJoined.contains(user)}">
+											<span>Joining <a href="/events/${event.id}/a/cancel">Cancel</a></span>
+										</c:when>
+										<c:otherwise>
+											<a href="/events/${event.id}/a/join">Join</a>
+										</c:otherwise>
+									</c:choose>
+								</c:otherwise>
 							</c:choose>
-						</td> --%>
+						</td>
 					</tr>
 				</c:forEach>
 				</tbody>
@@ -65,7 +75,7 @@
 						<td>${ event.date }</td>
 						<td>${ event.city }</td>
 						<td>${ event.eventCreator.firstName }</td>
-						<%-- <td>
+						<td>
 							<c:choose>
 								<c:when test="${event.eventCreator.id == user.id}">
 									<a href="/events/${event.id}/edit">Edit</a>
@@ -74,8 +84,18 @@
 										<button>Delete</button>
 									</form>
 								</c:when>
+								<c:otherwise>
+									<c:choose>
+										<c:when test="${event.userJoined.contains(user)}">
+											<span>Joining <a href="/events/${event.id}/a/cancel">Cancel</a></span>
+										</c:when>
+										<c:otherwise>
+											<a href="/events/${event.id}/a/join">Join</a>
+										</c:otherwise>
+									</c:choose>
+								</c:otherwise>
 							</c:choose>
-						</td> --%>
+						</td>
 					</tr>
 				</c:forEach>
 				</tbody>
