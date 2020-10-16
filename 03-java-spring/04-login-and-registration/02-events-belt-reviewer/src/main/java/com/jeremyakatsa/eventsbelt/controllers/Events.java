@@ -31,11 +31,6 @@ public class Events {
     	this.eventService = eventService;
     }
     
-    private String dateFormater() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-		return dateFormat.format(new Date());
-	}    
-	
 	@GetMapping("")
     public String Index(@ModelAttribute("event") Event event, Model model, HttpSession session) {
 		Long userId = (Long)session.getAttribute("userId");
@@ -46,7 +41,6 @@ public class Events {
 		User user = userService.findById(userId);
 		model.addAttribute("usersStates", this.eventService.allEventsWithState(user.getState()));
 		model.addAttribute("otherStates", this.eventService.allEventsNotState(user.getState()));
-		model.addAttribute("dateFormater", dateFormater());
 		model.addAttribute("user", user);
 		model.addAttribute("states", State.States);
 		return "/events/index.jsp";
@@ -60,7 +54,6 @@ public class Events {
 			User user = userService.findById(userId);
 			model.addAttribute("usersStates", this.eventService.allEventsWithState(user.getState()));
 			model.addAttribute("otherStates", this.eventService.allEventsNotState(user.getState()));
-			model.addAttribute("dateFormater", dateFormater());
 			model.addAttribute("user", user);
 			model.addAttribute("states", State.States);
 			return "/events/index.jsp";

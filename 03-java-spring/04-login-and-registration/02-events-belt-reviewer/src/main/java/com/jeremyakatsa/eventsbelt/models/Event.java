@@ -2,7 +2,7 @@ package com.jeremyakatsa.eventsbelt.models;
 
 
 
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +20,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -33,9 +32,8 @@ public class Event {
 	private Long id;
 	@NotBlank (message="Required")
 	private String name;
-	@Future
-	@DateTimeFormat(pattern = "MM/dd/yyyy")
-	private Date date;
+	@NotBlank (message="Required")
+	private String date;
     @NotBlank (message="Required")
     private String city;
     @NotBlank (message="Required")
@@ -67,10 +65,6 @@ public class Event {
         this.updatedAt = new Date();
     }
     
-    public String getEventDateFormatted() {
-    	SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-    	return dateFormat.format(this.date);
-    }
     
     public Event() {
     	
@@ -90,10 +84,10 @@ public class Event {
 		this.name = name;
 	}
 	
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public String getCity() {

@@ -92,7 +92,7 @@
 					<div class="form-group">
 						<form:label path="date">Date</form:label>
 						<form:errors path="date"></form:errors>
-						<form:input class="form-control" value="${ dateFormater }" type="date" path="date"></form:input>
+						<form:input class="form-control" path="date"></form:input>
 					</div>
 					 <div class="form-group">
 				        <form:label path="city">City</form:label>
