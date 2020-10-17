@@ -81,11 +81,11 @@ public class Events {
 		return "redirect:/events";
 	}
 	
-	@GetMapping("/{id")
+	@GetMapping("/{id}")
 	private String showEvent(@PathVariable("id") Long id, Model model, @ModelAttribute("message") Message message, HttpSession session) {
 		model.addAttribute("event", this.eventService.findById(id));
 		model.addAttribute("userId", session.getAttribute("userId"));
-		return "show.jsp";
+		return "/events/show.jsp";
 	}
 	
 }
