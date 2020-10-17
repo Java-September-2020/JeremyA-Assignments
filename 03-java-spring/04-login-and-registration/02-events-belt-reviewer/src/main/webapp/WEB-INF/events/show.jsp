@@ -22,6 +22,38 @@
 				<h4>Date: ${event.date}</h4>
 				<h4>Location: ${event.city}, ${event.state}</h4>
 				<h4>Attending: ${event.usersJoined.size()}</h4>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Location</th>
+						</tr>
+					</thead>
+					<tbody>
+					<c:forEach items="${ event.usersJoined }" var="user">
+						<tr>
+							<td>${ user.firstName } ${ user.lastName }</td>
+							<td>${ user.city }, ${ user.state }</td>
+						</tr>
+					</c:forEach>
+					</tbody>
+				</table>
+			</div>
+			<div class="messages">
+				<h3>Message Wall</h3>
+				<div class="messages">
+				<c:forEach items="${ event.messages }" var="message">
+					<p>${ message.messagesCreator.firstName } says: ${ message.comment }</p>
+				</c:forEach>
+				</div>
+				<form action="/events/${ event.id }/comment" method="post">
+					<div class="form-group">
+						<label for="comment">Add Comment</label>
+						<span>${ error }</span>
+						<textarea name="comment" id="comment" class="form-control"></textarea>
+						<input type="submit" value="Submit"/>
+					</div>
+				</form>
 			</div>
 		</div>
 	</body>

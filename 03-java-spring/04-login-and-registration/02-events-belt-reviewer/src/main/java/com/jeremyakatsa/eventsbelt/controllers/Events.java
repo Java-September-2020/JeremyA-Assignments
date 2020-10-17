@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jeremyakatsa.eventsbelt.models.Event;
 import com.jeremyakatsa.eventsbelt.models.Message;
@@ -87,5 +89,22 @@ public class Events {
 		model.addAttribute("userId", session.getAttribute("userId"));
 		return "/events/show.jsp";
 	}
+	
+	@PostMapping("/{id}/comment")
+	public String Comment(@PathVariable("id") Long id, @RequestParam("comment") String comment, RedirectAttributes redirs, HttpSession session) {
+		Long userId = (Long)session.getAttribute("userId");
+		if(userId == null)
+			return "redirect:/";
+		if(comment.equals("")) {
+			redirs.addFlashAttribute("error", "Comment must not be blank");
+			return "redirect:/events/" + id ;
+		}
+		Event event = this.eventService.findById(id);
+		User user = this.userService.findById(userId);
+		this.eventService.comment(user, event, comment);
+		return "redirect:/events/" + id;
+	}
+
+	
 	
 }
