@@ -6,13 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jeremyakatsa.eventsbelt.models.Event;
+import com.jeremyakatsa.eventsbelt.models.Message;
 import com.jeremyakatsa.eventsbelt.models.User;
 import com.jeremyakatsa.eventsbelt.repositories.EventRepository;
+import com.jeremyakatsa.eventsbelt.repositories.MessageRepository;
 
 @Service
 public class EventService {
 	@Autowired
 	private EventRepository eRepo;
+	@Autowired
+	private MessageRepository mRepo;
 	
 	public List<Event> allEventsWithState(String state) {
 		return this.eRepo.findByState(state);
@@ -51,6 +55,10 @@ public class EventService {
 		users.remove(user);
 		// Update 
 		this.eRepo.save(event);
+	}
+	
+	public void comment(User user, Event event, String comment) {
+		this.mRepo.save(new Message(user, event, comment));
 	}
 	
 }

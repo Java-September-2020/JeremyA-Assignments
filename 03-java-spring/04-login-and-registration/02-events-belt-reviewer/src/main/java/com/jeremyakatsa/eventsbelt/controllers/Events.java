@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jeremyakatsa.eventsbelt.models.Event;
+import com.jeremyakatsa.eventsbelt.models.Message;
 import com.jeremyakatsa.eventsbelt.models.State;
 import com.jeremyakatsa.eventsbelt.models.User;
 import com.jeremyakatsa.eventsbelt.services.EventService;
@@ -79,4 +80,12 @@ public class Events {
 		this.eventService.cancelEvent(canceled, canceledEvent);
 		return "redirect:/events";
 	}
+	
+	@GetMapping("/{id")
+	private String showEvent(@PathVariable("id") Long id, Model model, @ModelAttribute("message") Message message, HttpSession session) {
+		model.addAttribute("event", this.eventService.findById(id));
+		model.addAttribute("userId", session.getAttribute("userId"));
+		return "show.jsp";
+	}
+	
 }

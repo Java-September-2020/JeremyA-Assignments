@@ -22,7 +22,7 @@
 				<thead>
 					<th>Name</th>
 					<th>Date</th>
-					<th>Location</th>
+					<th>City</th>
 					<th>Host</th>
 					<th>Action/Status</th>
 				</thead>
@@ -64,7 +64,8 @@
 				<thead>
 					<th>Name</th>
 					<th>Date</th>
-					<th>Location</th>
+					<th>City</th>
+					<th>State</th>
 					<th>Host</th>
 					<th>Action/Status</th>
 				</thead>
@@ -74,6 +75,7 @@
 						<td><a href="/events/${event.id}">${event.name }</a></td>
 						<td>${ event.date }</td>
 						<td>${ event.city }</td>
+						<td>${ event.state }</td>
 						<td>${ event.eventCreator.firstName }</td>
 						<td>
 							<c:choose>
