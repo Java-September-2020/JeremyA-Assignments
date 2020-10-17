@@ -17,7 +17,12 @@
 	<body>
 		<div id="wrapper" class="text-secondary">
 			<h1><c:out value="${event.name}"/></h1>
-			<h4>This Page Works</h4>
+			<div class="event-detail">
+				<h4>Host: ${event.eventCreator.firstName}</h4>
+				<h4>Date: ${event.date}</h4>
+				<h4>Location: ${event.city}, ${event.state}</h4>
+				<h4>Attending: ${event.usersJoined.size()}</h4>
+			</div>
 		</div>
 	</body>
 </html>
