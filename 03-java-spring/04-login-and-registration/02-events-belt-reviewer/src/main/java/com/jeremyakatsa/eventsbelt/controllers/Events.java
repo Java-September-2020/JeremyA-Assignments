@@ -104,6 +104,12 @@ public class Events {
 		this.eventService.comment(user, event, comment);
 		return "redirect:/events/" + id;
 	}
+	
+	@GetMapping("/delete/{id}")
+	public String deleteEvent(@PathVariable("id") Long id) {
+		this.eventService.delete(id);
+		return "redirect:/events";
+	}
 
 	
 	

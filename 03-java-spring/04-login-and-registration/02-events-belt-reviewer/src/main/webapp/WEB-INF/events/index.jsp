@@ -37,10 +37,7 @@
 							<c:choose>
 								<c:when test="${event.eventCreator.id == user.id}">
 									<a href="/events/${event.id}/edit">Edit</a>
-									<form class="delete-form" action="/events/${event.id}" method="post">
-										<input type="hidden" name="_method" value="delete"/>
-										<button>Delete</button>
-									</form>
+									<a href="/events/delete/${event.id}">Delete</a>
 								</c:when>
 								<c:otherwise>
 									<c:choose>
@@ -81,10 +78,7 @@
 							<c:choose>
 								<c:when test="${event.eventCreator.id == user.id}">
 									<a href="/events/${event.id}/edit">Edit</a>
-									<form class="delete-form" action="/events/${event.id}" method="post">
-										<input type="hidden" name="_method" value="delete"/>
-										<button>Delete</button>
-									</form>
+									<a href="/events/delete/${event.id}">Delete</a>
 								</c:when>
 								<c:otherwise>
 									<c:choose>
