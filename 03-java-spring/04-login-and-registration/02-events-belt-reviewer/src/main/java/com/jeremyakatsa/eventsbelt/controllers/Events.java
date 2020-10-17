@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -103,6 +104,36 @@ public class Events {
 		User user = this.userService.findById(userId);
 		this.eventService.comment(user, event, comment);
 		return "redirect:/events/" + id;
+	}
+	
+	@GetMapping("/{id}/edit")
+	public String Edit(@PathVariable("id") Long id, HttpSession session, Model model) {
+		Long userId = (Long)session.getAttribute("userId");
+		Event event = this.eventService.findById(id);
+		if(userId == null)
+			return "redirect:/";
+		if(event == null || !event.getEventCreator().getId().equals(userId))
+			return "redirect:/events";
+		
+		model.addAttribute("event", event);
+		model.addAttribute("states", State.States);
+		model.addAttribute("userId", userId);
+		return "/events/edit.jsp";
+	}
+	
+	@PutMapping("{id}")
+	public String updateEvent(@Valid @ModelAttribute("event") Event updateEvent, BindingResult result, @PathVariable("id") Long id, 
+			HttpSession session, Model model) {
+		if(result.hasErrors()) {
+			Long userId = (Long)session.getAttribute("userId");
+			model.addAttribute("event", updateEvent);
+			model.addAttribute("states", State.States);
+			model.addAttribute("userId", userId);
+			return "/events/edit.jsp";
+		} else {
+			this.eventService.update(updateEvent);
+			return "redirect:/events";
+		}
 	}
 	
 	@GetMapping("/delete/{id}")

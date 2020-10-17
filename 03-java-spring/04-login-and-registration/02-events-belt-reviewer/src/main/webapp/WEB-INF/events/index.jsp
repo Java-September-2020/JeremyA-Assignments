@@ -14,7 +14,7 @@
 	<body>
 		<div id="wrapper" class="text-dark">
 			<h2 id="welcome-ninja">Welcome, Ninja ${ user.firstName }</h2>
-			<h3>Here are some of the events in your state:</h3>
+			<h3>Here are some of the events in your state of ${user.state}:</h3>
 			<%-- <form id="logout" action="/logout">
 					<input type="submit" value="Logout"/>
 			</form> --%>
