@@ -44,11 +44,11 @@
 								</c:when>
 								<c:otherwise>
 									<c:choose>
-										<c:when test="${event.userJoined.contains(user)}">
-											<span>Joining <a href="/events/${event.id}/a/cancel">Cancel</a></span>
+										<c:when test="${event.usersJoined.contains(user)}">
+											<span>Joined <a href="/events/${event.id}/cancel">Cancel</a></span>
 										</c:when>
 										<c:otherwise>
-											<a href="/events/${event.id}/a/join">Join</a>
+											<a href="/events/${event.id}/join">Join</a>
 										</c:otherwise>
 									</c:choose>
 								</c:otherwise>
@@ -86,11 +86,11 @@
 								</c:when>
 								<c:otherwise>
 									<c:choose>
-										<c:when test="${event.userJoined.contains(user)}">
-											<span>Joining <a href="/events/${event.id}/a/cancel">Cancel</a></span>
+										<c:when test="${event.usersJoined.contains(user)}">
+											<span>Joined <a href="/events/${event.id}/cancel">Cancel</a></span>
 										</c:when>
 										<c:otherwise>
-											<a href="/events/${event.id}/a/join">Join</a>
+											<a href="/events/${event.id}/join">Join</a>
 										</c:otherwise>
 									</c:choose>
 								</c:otherwise>

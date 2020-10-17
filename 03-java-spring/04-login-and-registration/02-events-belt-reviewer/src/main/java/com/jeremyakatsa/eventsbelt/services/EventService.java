@@ -35,12 +35,21 @@ public class EventService {
 	public void delete(Long id) {
 		this.eRepo.deleteById(id);
 	}
-	public void manageUsers(Event event, User user, boolean isJoining) {
-		if(isJoining) {
-			event.getUsersJoined().add(user);
-		} else {
-			event.getUsersJoined().remove(user);
-		}
+	public void joinEvent(User user, Event event) {
+		// Get the list from the Event
+		List<User> users = event.getUsersJoined();
+		// Add the User who joined the event
+		users.add(user);
+		// Update 
+		this.eRepo.save(event);
+	}
+	
+	public void cancelEvent(User user, Event event) {
+		// Get the list from the Event
+		List<User> users = event.getUsersJoined();
+		// Remove the User who joined the event
+		users.remove(user);
+		// Update 
 		this.eRepo.save(event);
 	}
 	

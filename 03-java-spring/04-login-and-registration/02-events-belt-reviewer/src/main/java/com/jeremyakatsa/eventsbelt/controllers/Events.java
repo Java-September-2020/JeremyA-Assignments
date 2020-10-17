@@ -1,8 +1,5 @@
 package com.jeremyakatsa.eventsbelt.controllers;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -11,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -39,7 +37,7 @@ public class Events {
 		}
         // get user from session, save them in the model and return the home page
 		User user = userService.findById(userId);
-		model.addAttribute("usersStates", this.eventService.allEventsWithState(user.getState()));
+		model.addAttribute("userStates", this.eventService.allEventsWithState(user.getState()));
 		model.addAttribute("otherStates", this.eventService.allEventsNotState(user.getState()));
 		model.addAttribute("user", user);
 		model.addAttribute("states", State.States);
@@ -47,12 +45,11 @@ public class Events {
     }
 	
 	@PostMapping("")
-	public String addEvent(@Valid @ModelAttribute("event") Event newEvent, Model model, BindingResult result,
-			HttpSession session) {
+	public String addEvent(@Valid @ModelAttribute("event") Event newEvent, BindingResult result, Model model, HttpSession session) {
 		if(result.hasErrors()) {
 			Long userId = (Long)session.getAttribute("userId");
 			User user = userService.findById(userId);
-			model.addAttribute("usersStates", this.eventService.allEventsWithState(user.getState()));
+			model.addAttribute("userStates", this.eventService.allEventsWithState(user.getState()));
 			model.addAttribute("otherStates", this.eventService.allEventsNotState(user.getState()));
 			model.addAttribute("user", user);
 			model.addAttribute("states", State.States);
@@ -62,5 +59,24 @@ public class Events {
 			return "redirect:/events";
 		}
 	}
-
+	
+	@GetMapping("/{id}/join")
+	private String joinEvent(@PathVariable("id") Long id, HttpSession session){
+		Long userId = (Long)session.getAttribute("userId");
+		Long eventId = id;
+		User joined = this.userService.findById(userId);
+		Event joinedEvent = this.eventService.findById(eventId);
+		this.eventService.joinEvent(joined, joinedEvent);
+		return "redirect:/events";
+	}
+	
+	@GetMapping("/{id}/cancel")
+	private String cancelEvent(@PathVariable("id") Long id, HttpSession session) {
+		Long userId = (Long)session.getAttribute("userId");
+		Long eventId = id;
+		User canceled = this.userService.findById(userId);
+		Event canceledEvent = this.eventService.findById(eventId);
+		this.eventService.cancelEvent(canceled, canceledEvent);
+		return "redirect:/events";
+	}
 }
